@@ -1,6 +1,6 @@
 FROM fedora:latest
 LABEL maintainer="sean@sean.io"
 
-RUN dnf -y install initscripts systemd-sysv net-tools procps-ng which
+RUN dnf -y install curl emacs-nox gnupg2 initscripts iptables iputils lsof nc net-tools nmap procps strace systemd-sysv tcpdump telnet vim wget which
 
 CMD [ '/usr/lib/systemd/systemd' ]
