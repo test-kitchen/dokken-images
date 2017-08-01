@@ -1,6 +1,6 @@
 FROM centos:5
 LABEL maintainer="sean@sean.io"
 
-RUN yum -y install which initscripts lsof net-tools wget curl
+RUN yum -y install curl emacs-nox gnupg2 initscripts iptables iputils lsof nc net-tools nmap openssl procps strace tcpdump telnet vim wget which
 
 CMD [ '/sbin/init' ]
