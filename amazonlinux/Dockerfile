@@ -1,6 +1,7 @@
 FROM amazonlinux:latest
 LABEL maintainer="sean@sean.io"
 
+RUN echo 'nameserver 8.8.8.8' > /etc/resolv.conf
 RUN yum -y install upstart util-linux curl emacs-nox gnupg2 initscripts iptables iputils lsof nc net-tools nmap openssl procps strace tcpdump telnet vim wget which
 RUN echo -e "NETWORKING=yes\nNETWORKING_IPV6=no\nHOSTNAME=dokken" > /etc/sysconfig/network
 
