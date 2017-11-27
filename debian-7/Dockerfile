@@ -7,4 +7,4 @@ RUN wget http://launchpadlibrarian.net/173841617/init-system-helpers_1.18_all.de
 RUN dpkg -i /init-system-helpers_1.18_all.deb
 RUN rm -rf /sbin/initctl
 
-CMD [ '/sbin/init' ]
+CMD [ "/sbin/init" ]
