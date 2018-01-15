@@ -1,4 +1,4 @@
-FROM ubuntu:17.04
+FROM ubuntu:17.10
 LABEL maintainer="sean@sean.io"
 
 RUN /usr/bin/apt-get update
