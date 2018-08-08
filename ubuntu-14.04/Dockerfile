@@ -22,6 +22,8 @@ RUN /usr/bin/apt-get update && \
     tcpdump \
     telnet \
     vim-tiny \
-    wget
+    wget && \
+    /usr/bin/apt-get clean && \
+    /usr/bin/apt-get -y autoremove
 
 CMD [ "/sbin/init" ]
