@@ -7,6 +7,7 @@ RUN /usr/bin/apt-get update && \
     curl \
     dirmngr \
     gnupg \
+    iproute2 \
     iptables \
     iputils-ping \
     kmod \
