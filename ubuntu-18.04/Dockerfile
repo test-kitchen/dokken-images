@@ -24,9 +24,7 @@ RUN /usr/bin/apt-get update && \
     tcpdump \
     telnet \
     vim-tiny \
-    wget
-
-# Remove annoying tty service which consumes 100% CPU
-RUN rm /etc/systemd/system/getty.target.wants/getty\@tty1.service
+    wget && \
+    rm /etc/systemd/system/getty.target.wants/getty\@tty1.service # Remove annoying tty service which consumes 100% CPU
 
 CMD [ "/bin/systemd" ]
