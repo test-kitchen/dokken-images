@@ -1,7 +1,29 @@
 FROM amazonlinux:2
 LABEL maintainer="sean@sean.io"
 
-RUN yum -y install curl gnupg2 util-linux initscripts iptables iputils lsof nc net-tools nmap openssl procps strace systemd-sysv tcpdump telnet vim-minimal wget which ca-certificates sudo && \
+RUN yum -y install \
+    ca-certificates \
+    cronie \
+    curl \
+    gnupg2 \
+    initscripts \
+    iptables \
+    iputils \
+    lsof \
+    nc \
+    net-tools \
+    nmap \
+    openssl \
+    procps \
+    strace \
+    sudo \
+    systemd-sysv \
+    tcpdump \
+    telnet \
+    util-linux \
+    vim-minimal \
+    wget \
+    which && \
     yum clean all && \
     rm -rf /var/cache/yum && \
     rm -rf /var/log/*

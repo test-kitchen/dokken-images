@@ -1,7 +1,29 @@
 FROM centos:6
 LABEL maintainer="sean@sean.io"
 
-RUN yum -y install curl util-linux gnupg2 initscripts iptables iputils lsof nc net-tools nmap openssl procps strace tcpdump telnet vim-minimal wget which ca-certificates sudo && \
+RUN yum -y install \
+    ca-certificates \
+    curl \
+    gnupg2 \
+    initscripts \
+    iptables \
+    iputils \
+    lsof \
+    nc \
+    net-tools \
+    nmap \
+    openssl \
+    passwd \
+    procps \
+    strace \
+    sudo \
+    tcpdump \
+    telnet \
+    upstart \
+    util-linux \
+    vim-minimal \
+    wget \
+    which && \
     yum clean all && \
     rm -rf /var/cache/yum && \
     rm -rf /var/log/*
