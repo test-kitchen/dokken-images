@@ -1,6 +1,6 @@
 FROM centos:7
 LABEL maintainer="sean@sean.io"
 
-RUN yum -y install curl emacs-nox gnupg2 initscripts iptables iputils lsof nc net-tools nmap openssl procps strace systemd-sysv tcpdump telnet vim-minimal wget which ca-certificates sudo
+RUN yum -y install curl util-linux gnupg2 initscripts iptables iputils lsof nc net-tools nmap openssl procps strace systemd-sysv tcpdump telnet vim-minimal wget which ca-certificates sudo
 
 CMD [ "/usr/lib/systemd/systemd" ]
