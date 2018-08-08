@@ -19,6 +19,7 @@ RUN /usr/bin/apt-get update && \
     procps \
     strace \
     sudo \
+    systemd \
     tcpdump \
     telnet \
     vim-tiny \

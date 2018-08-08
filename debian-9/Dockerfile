@@ -9,6 +9,7 @@ RUN /usr/bin/apt-get update && \
     gnupg \
     iptables \
     iputils-ping \
+    kmod \
     lsb-release \
     lsof \
     net-tools \
