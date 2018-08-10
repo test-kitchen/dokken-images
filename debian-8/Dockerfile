@@ -1,6 +1,7 @@
 FROM debian:8
 LABEL maintainer="sean@sean.io"
 
+ENV DEBIAN_FRONTEND noninteractive
 RUN /usr/bin/apt-get update && \
     /usr/bin/apt-get -y install \
     apt-transport-https \
