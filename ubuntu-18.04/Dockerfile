@@ -6,6 +6,7 @@ RUN /usr/bin/apt-get update && \
     apt-transport-https \
     apt-utils \
     curl \
+    dbus \
     cron \
     dirmngr \
     gnupg \
