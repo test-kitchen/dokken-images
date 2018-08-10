@@ -5,11 +5,13 @@ RUN /usr/bin/apt-get update && \
     /usr/bin/apt-get -y install \
     apt-transport-https \
     curl \
+    dbus \
     dirmngr \
     gnupg \
     iptables \
     iputils-ping \
     kmod \
+    locales \
     lsb-release \
     lsof \
     net-tools \
