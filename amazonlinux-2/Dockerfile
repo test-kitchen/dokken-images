@@ -14,6 +14,7 @@ RUN yum -y install \
     net-tools \
     nmap \
     openssl \
+    passwd \
     procps \
     strace \
     sudo \

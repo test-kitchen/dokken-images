@@ -3,6 +3,7 @@ LABEL maintainer="sean@sean.io"
 
 RUN yum -y install \
     ca-certificates \
+    cronie \
     curl \
     gnupg2 \
     initscripts \
