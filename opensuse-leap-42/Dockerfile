@@ -7,8 +7,14 @@ RUN zypper install -y aaa_base \
                       which \
                       net-tools \
                       systemd-sysvinit \
+                      aaa_base-extras \
+                      ca-certificates \
                       curl \
                       tar \
+                      cron \
+                      e2fsprogs \
+                      file \
+                      findutils \
                       glibc-locale \
                       ncurses-devel \
                       sudo \
