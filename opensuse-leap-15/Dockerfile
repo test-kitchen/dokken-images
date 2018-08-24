@@ -14,6 +14,7 @@ RUN zypper install -y aaa_base \
                       hostname \
                       iproute2 \
                       iputils \
+                      lsb-release \
                       ncurses-devel \
                       netcat \
                       net-tools \
@@ -22,6 +23,8 @@ RUN zypper install -y aaa_base \
                       systemd-sysvinit \
                       sysvinit-tools \
                       tar \
+                      time \
+                      timezone \
                       traceroute \
                       util-linux \
                       vim \
