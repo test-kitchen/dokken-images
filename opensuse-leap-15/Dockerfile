@@ -2,17 +2,31 @@ FROM opensuse/leap:15
 LABEL maintainer="sean@sean.io"
 
 RUN zypper install -y aaa_base \
-                      util-linux \
-                      perl-Getopt-Long-Descriptive \
-                      which \
-                      net-tools \
-                      systemd-sysvinit \
+                      aaa_base-extras \
+                      ca-certificates \
                       curl \
-                      tar \
+                      cron \
+                      e2fsprogs \
+                      file \
+                      findutils \
                       glibc-locale \
+                      grep \
+                      hostname \
+                      iproute2 \
+                      iputils \
                       ncurses-devel \
+                      netcat \
+                      net-tools \
+                      perl-Getopt-Long-Descriptive \
                       sudo \
-                      wget && \
+                      systemd-sysvinit \
+                      sysvinit-tools \
+                      tar \
+                      traceroute \
+                      util-linux \
+                      vim \
+                      wget \
+                      which && \
                       zypper clean && \
                       rm -rf /var/log/*
 
