@@ -1,8 +1,9 @@
-FROM fedora:27
+FROM amazonlinux:2
 LABEL maintainer="sean@sean.io"
 
-RUN dnf -y install \
+RUN yum -y install \
     ca-certificates \
+    cronie \
     curl \
     gnupg2 \
     initscripts \
@@ -24,7 +25,8 @@ RUN dnf -y install \
     vim-minimal \
     wget \
     which && \
-    dnf clean all && \
+    yum clean all && \
+    rm -rf /var/cache/yum && \
     rm -rf /var/log/*
 
 CMD [ "/usr/lib/systemd/systemd" ]

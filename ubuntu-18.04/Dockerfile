@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 LABEL maintainer="sean@sean.io"
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -24,7 +24,6 @@ RUN /usr/bin/apt-get update && \
     nmap \
     perl \
     procps \
-    python3 \
     strace \
     sudo \
     systemd \
