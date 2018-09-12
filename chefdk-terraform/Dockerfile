@@ -16,5 +16,12 @@ RUN curl -L https://get.docker.com | sh
 
 RUN apt-get install -y git
 
+# Install terraform
+RUN apt-get -y update
+RUN apt-get -y install unzip
+RUN wget -q https://releases.hashicorp.com/terraform/0.11.8/terraform_0.11.8_linux_amd64.zip
+RUN unzip ./terraform_0.11.8_linux_amd64.zip
+RUN mv terraform /usr/local/bin/
+
 # do this last
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
