@@ -19,6 +19,7 @@ RUN yum -y install \
     strace \
     sudo \
     systemd-sysv \
+    system-lsb-core \
     tcpdump \
     telnet \
     util-linux \
