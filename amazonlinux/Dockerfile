@@ -16,6 +16,7 @@ RUN yum -y install \
     openssl \
     passwd \
     procps \
+    redhat-lsb-core \
     strace \
     sudo \
     tcpdump \
