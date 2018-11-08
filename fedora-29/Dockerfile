@@ -1,9 +1,8 @@
-FROM fedora:latest
+FROM fedora:29
 LABEL maintainer="sean@sean.io"
 
 RUN dnf -y install \
     ca-certificates \
-    cronie \
     curl \
     gnupg2 \
     initscripts \
