@@ -6,6 +6,7 @@ RUN dnf -y install \
     cronie \
     curl \
     gnupg2 \
+    hostname \
     initscripts \
     iproute \
     iptables \

@@ -5,6 +5,7 @@ RUN dnf -y install \
     ca-certificates \
     curl \
     gnupg2 \
+    hostname \
     initscripts \
     iproute \
     iptables \
