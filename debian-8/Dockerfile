@@ -1,4 +1,4 @@
-FROM debian:8
+FROM debian:jessie
 LABEL maintainer="sean@sean.io"
 
 ENV DEBIAN_FRONTEND noninteractive
