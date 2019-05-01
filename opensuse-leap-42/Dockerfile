@@ -6,6 +6,7 @@ RUN zypper install -y aaa_base \
                       ca-certificates \
                       curl \
                       cron \
+                      dbus-1 \
                       e2fsprogs \
                       file \
                       findutils \
@@ -25,6 +26,7 @@ RUN zypper install -y aaa_base \
                       time \
                       timezone \
                       traceroute \
+                      udev \
                       util-linux \
                       vim \
                       wget \
