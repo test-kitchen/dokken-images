@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM debian:10
 LABEL maintainer="sean@sean.io"
 
 ENV DEBIAN_FRONTEND noninteractive
