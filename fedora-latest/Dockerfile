@@ -26,6 +26,7 @@ RUN dnf -y install \
     util-linux \
     vim-minimal \
     wget \
+    libxcrypt-compat \
     which && \
     dnf clean all && \
     rm -rf /var/log/*
