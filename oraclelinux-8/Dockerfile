@@ -1,7 +1,7 @@
 FROM oraclelinux:8
 LABEL maintainer="tsmith@chef.io"
 
-RUN yum -y install \
+RUN dnf -y install \
     ca-certificates \
     cronie \
     curl \
@@ -26,8 +26,7 @@ RUN yum -y install \
     vim-minimal \
     wget \
     which && \
-    yum clean all && \
-    rm -rf /var/cache/yum && \
-    rm -rf /var/log/*
+    dnf upgrade -y && \
+    dnf clean all
 
 CMD [ "/usr/lib/systemd/systemd" ]
