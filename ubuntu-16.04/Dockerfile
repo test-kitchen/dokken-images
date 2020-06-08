@@ -25,6 +25,7 @@ RUN /usr/bin/apt-get update && \
     perl \
     procps \
     python3 \
+    snapd \
     strace \
     sudo \
     systemd \

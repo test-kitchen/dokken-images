@@ -24,6 +24,7 @@ RUN /usr/bin/apt-get update && \
     nmap \
     perl \
     procps \
+    snapd \
     strace \
     sudo \
     systemd \
