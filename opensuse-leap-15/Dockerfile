@@ -1,7 +1,8 @@
 FROM opensuse/leap:15
 LABEL maintainer="sean@sean.io"
 
-RUN zypper install -y aaa_base \
+RUN zypper update -y && \
+    zypper install -y aaa_base \
                       aaa_base-extras \
                       ca-certificates \
                       curl \
@@ -11,6 +12,7 @@ RUN zypper install -y aaa_base \
                       findutils \
                       glibc-locale \
                       grep \
+                      gzip \
                       hostname \
                       iproute2 \
                       iputils \
@@ -30,7 +32,7 @@ RUN zypper install -y aaa_base \
                       vim \
                       wget \
                       which && \
-                      zypper clean && \
-                      rm -rf /var/log/*
+    zypper clean && \
+    rm -rf /var/log/*
 
 CMD [ "/bin/systemd" ]
