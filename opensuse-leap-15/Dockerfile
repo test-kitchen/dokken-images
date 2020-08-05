@@ -7,6 +7,7 @@ RUN zypper update -y && \
                       ca-certificates \
                       curl \
                       cron \
+                      dmidecode \
                       e2fsprogs \
                       file \
                       findutils \

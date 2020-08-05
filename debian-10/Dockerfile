@@ -10,6 +10,7 @@ RUN /usr/bin/apt-get update && \
     cron \
     dbus \
     dirmngr \
+    dmidecode \
     gnupg \
     iptables \
     iputils-ping \

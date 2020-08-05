@@ -4,6 +4,7 @@ LABEL maintainer="sean@sean.io"
 RUN dnf -y install \
     ca-certificates \
     curl \
+    dmidecode \
     gnupg2 \
     hostname \
     initscripts \

@@ -10,6 +10,7 @@ RUN /usr/bin/apt-get update && \
     dbus \
     cron \
     dirmngr \
+    dmidecode \
     gnupg \
     iproute2 \
     iptables \

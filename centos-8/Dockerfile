@@ -5,6 +5,7 @@ RUN dnf -y install \
     ca-certificates \
     cronie \
     curl \
+    dmidecode \
     gnupg2 \
     initscripts \
     iptables \
