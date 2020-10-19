@@ -5,8 +5,8 @@ RUN zypper update -y && \
     zypper install -y aaa_base \
                       aaa_base-extras \
                       ca-certificates \
-                      curl \
                       cron \
+                      curl \
                       dmidecode \
                       e2fsprogs \
                       file \
@@ -15,12 +15,13 @@ RUN zypper update -y && \
                       grep \
                       gzip \
                       hostname \
+                      insserv-compat \
                       iproute2 \
                       iputils \
                       lsb-release \
                       ncurses-devel \
-                      netcat \
                       net-tools \
+                      netcat \
                       perl-Getopt-Long-Descriptive \
                       sudo \
                       systemd-sysvinit \
