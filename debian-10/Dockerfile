@@ -6,12 +6,13 @@ RUN /usr/bin/apt-get update && \
     /usr/bin/apt-get -y install \
     apt-transport-https \
     apt-utils \
-    curl \
     cron \
+    curl \
     dbus \
     dirmngr \
     dmidecode \
     gnupg \
+    ifupdown \
     iptables \
     iputils-ping \
     kmod \

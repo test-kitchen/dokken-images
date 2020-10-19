@@ -12,6 +12,7 @@ RUN /usr/bin/apt-get update && \
     dirmngr \
     dmidecode \
     gnupg \
+    ifupdown \
     iptables \
     iputils-ping \
     kmod \
