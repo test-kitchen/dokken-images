@@ -6,8 +6,8 @@ RUN /usr/bin/apt-get update && \
     /usr/bin/apt-get -y install \
     apt-transport-https \
     apt-utils \
-    curl \
     cron \
+    curl \
     dbus \
     dirmngr \
     dmidecode \
@@ -28,6 +28,7 @@ RUN /usr/bin/apt-get update && \
     systemd \
     tcpdump \
     telnet \
+    tzdata \
     udev \
     vim-tiny \
     wget && \
