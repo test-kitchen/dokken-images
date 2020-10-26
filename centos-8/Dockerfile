@@ -32,6 +32,7 @@ RUN dnf -y install \
     wget \
     which && \
     dnf upgrade -y && \
-    dnf clean all
+    dnf clean all && \
+    rm -rf /var/log/*
 
 CMD [ "/usr/lib/systemd/systemd" ]
