@@ -1,5 +1,5 @@
 FROM oraclelinux:8
-LABEL maintainer="tsmith@chef.io"
+LABEL maintainer="tsmith84@gmail.com"
 
 RUN dnf -y install \
     ca-certificates \

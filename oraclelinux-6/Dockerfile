@@ -1,5 +1,5 @@
 FROM oraclelinux:6
-LABEL maintainer="tsmith@chef.io"
+LABEL maintainer="tsmith84@gmail.com"
 
 RUN yum -y install \
     ca-certificates \

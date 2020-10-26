@@ -1,5 +1,5 @@
 FROM ubuntu:20.04
-LABEL maintainer="tsmith@chef.io"
+LABEL maintainer="tsmith84@gmail.com"
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN /usr/bin/apt-get update && \
