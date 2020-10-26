@@ -2,12 +2,16 @@ FROM centos:8
 LABEL maintainer="tsmith84@gmail.com"
 
 RUN dnf -y install \
+    binutils
     ca-certificates \
     cronie \
     curl \
     dmidecode \
+    file \
     gnupg2 \
+    hostname \
     initscripts \
+    iproute \
     iptables \
     iputils \
     lsof \

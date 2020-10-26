@@ -2,10 +2,12 @@ FROM fedora:33
 LABEL maintainer="sean@sean.io"
 
 RUN dnf -y install \
+    binutils
     ca-certificates \
     cronie \
     curl \
     dmidecode \
+    file \
     gnupg2 \
     hostname \
     initscripts \

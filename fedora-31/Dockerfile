@@ -2,9 +2,11 @@ FROM fedora:31
 LABEL maintainer="sean@sean.io"
 
 RUN dnf -y install \
+    binutils
     ca-certificates \
     curl \
     dmidecode \
+    file \
     gnupg2 \
     hostname \
     initscripts \
