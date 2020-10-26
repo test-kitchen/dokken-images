@@ -2,10 +2,13 @@ FROM oraclelinux:8
 LABEL maintainer="tsmith84@gmail.com"
 
 RUN dnf -y install \
+    binutils
     ca-certificates \
     cronie \
     curl \
     dmidecode \
+    ethtool \
+    file \
     gnupg2 \
     hostname \
     initscripts \
@@ -22,6 +25,7 @@ RUN dnf -y install \
     strace \
     sudo \
     systemd-sysv \
+    systemd-udev \
     redhat-lsb-core \
     tcpdump \
     telnet \
