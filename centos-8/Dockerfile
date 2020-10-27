@@ -2,7 +2,7 @@ FROM centos:8
 LABEL maintainer="tsmith84@gmail.com"
 
 RUN dnf -y install \
-    binutils
+    binutils \
     ca-certificates \
     cronie \
     curl \

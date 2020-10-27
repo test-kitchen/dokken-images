@@ -2,7 +2,7 @@ FROM fedora:31
 LABEL maintainer="sean@sean.io"
 
 RUN dnf -y install \
-    binutils
+    binutils \
     ca-certificates \
     curl \
     dmidecode \
