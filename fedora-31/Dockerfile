@@ -24,6 +24,7 @@ RUN dnf -y install \
     strace \
     sudo \
     systemd-sysv \
+    systemd-udev \
     tcpdump \
     telnet \
     util-linux \
