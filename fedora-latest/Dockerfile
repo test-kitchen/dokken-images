@@ -8,6 +8,7 @@ RUN dnf -y install \
     curl \
     dmidecode \
     file \
+    fipscheck \
     gnupg2 \
     hostname \
     initscripts \
