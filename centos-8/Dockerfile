@@ -25,6 +25,7 @@ RUN dnf -y install \
     strace \
     sudo \
     systemd-sysv \
+    systemd-udev \
     redhat-lsb-core \
     tcpdump \
     telnet \
