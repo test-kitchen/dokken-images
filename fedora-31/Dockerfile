@@ -6,6 +6,7 @@ RUN dnf -y install \
     ca-certificates \
     curl \
     dmidecode \
+    ethtool \
     file \
     fipscheck \
     gnupg2 \

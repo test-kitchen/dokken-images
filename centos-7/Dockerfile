@@ -7,6 +7,7 @@ RUN yum -y install \
     cronie \
     curl \
     dmidecode \
+    ethtool \
     file \
     gnupg2 \
     hostname \
@@ -23,8 +24,8 @@ RUN yum -y install \
     procps \
     strace \
     sudo \
-    systemd-sysv \
     system-lsb-core \
+    systemd-sysv \
     tcpdump \
     telnet \
     util-linux \

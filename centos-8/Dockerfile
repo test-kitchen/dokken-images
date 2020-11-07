@@ -7,6 +7,7 @@ RUN dnf -y install \
     cronie \
     curl \
     dmidecode \
+    ethtool \
     file \
     gnupg2 \
     hostname \
