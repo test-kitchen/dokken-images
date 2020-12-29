@@ -7,6 +7,7 @@ RUN yum -y install \
     cronie \
     curl \
     dmidecode \
+    e2fsprogs \
     ethtool \
     file \
     gnupg2 \
