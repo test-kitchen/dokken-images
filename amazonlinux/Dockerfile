@@ -26,7 +26,9 @@ RUN yum -y install \
     util-linux \
     vim-minimal \
     wget \
-    which && \
+    which \
+    zlib \
+    zlib-devel && \
     yum clean all && \
     rm -rf /var/cache/yum && \
     rm -rf /var/log/*
