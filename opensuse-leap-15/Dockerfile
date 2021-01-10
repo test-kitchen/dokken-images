@@ -45,6 +45,16 @@ RUN zypper update -y && \
                       wget \
                       which && \
     zypper clean && \
-    rm -rf /var/log/*
+    rm -rf /var/log/* && \
+    # Don't start any optional services.
+    find /etc/systemd/system \
+    /usr/lib/systemd/system \
+    -path '*.wants/*' \
+    -not -name '*journald*' \
+    -not -name '*systemd-tmpfiles*' \
+    -not -name '*systemd-user-sessions*' \
+    -exec rm \{} \; && \
+    systemctl set-default multi-user.target && \
+    systemctl mask dev-hugepages.mount sys-fs-fuse-connections.mount
 
 CMD [ "/bin/systemd" ]

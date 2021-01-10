@@ -45,6 +45,16 @@ RUN dnf -y install \
     libxcrypt-compat \
     which && \
     dnf clean all && \
-    rm -rf /var/log/*
+    rm -rf /var/log/* && \
+    # Don't start any optional services.
+    find /etc/systemd/system \
+    /lib/systemd/system \
+    -path '*.wants/*' \
+    -not -name '*journald*' \
+    -not -name '*systemd-tmpfiles*' \
+    -not -name '*systemd-user-sessions*' \
+    -exec rm \{} \; && \
+    systemctl set-default multi-user.target && \
+    systemctl mask dev-hugepages.mount sys-fs-fuse-connections.mount
 
 CMD [ "/usr/lib/systemd/systemd" ]

@@ -48,6 +48,16 @@ RUN /usr/bin/apt-get update && \
     /usr/bin/apt-get -y autoremove && \
     rm -rf /tmp/* /var/tmp/* && \
     sudo ln -s /bin/mkdir /usr/bin/mkdir && \
-    rm /etc/systemd/system/getty.target.wants/getty\@tty1.service # Remove annoying tty service which consumes 100% CPU
+    # Don't start any optional services.
+    find /etc/systemd/system \
+    /lib/systemd/system \
+    -path '*.wants/*' \
+    -not -name '*journald*' \
+    -not -name '*systemd-tmpfiles*' \
+    -not -name '*systemd-user-sessions*' \
+    -exec rm \{} \; && \
+    systemctl set-default multi-user.target && \
+    systemctl disable exim4.service && \
+    systemctl mask dev-hugepages.mount sys-fs-fuse-connections.mount
 
 CMD [ "/bin/systemd" ]
