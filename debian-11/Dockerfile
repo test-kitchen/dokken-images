@@ -1,22 +1,21 @@
-FROM ubuntu:18.04
-LABEL maintainer="sean@sean.io"
+FROM debian:bullseye
+LABEL maintainer="tsmith84@gmail.com"
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN /usr/bin/apt-get update && \
     /usr/bin/apt-get -y install \
     apt-transport-https \
     apt-utils \
+    cron \
     curl \
     dbus \
-    cron \
     dirmngr \
     dmidecode \
     gnupg \
-    iproute2 \
+    ifupdown \
     iptables \
     iputils-ping \
     kmod \
-    linux-base \
     locales \
     lsb-release \
     lsof \
@@ -25,7 +24,6 @@ RUN /usr/bin/apt-get update && \
     nmap \
     perl \
     procps \
-    snapd \
     strace \
     sudo \
     systemd \

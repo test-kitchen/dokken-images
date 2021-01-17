@@ -10,6 +10,7 @@ RUN /usr/bin/apt-get update && \
     dbus \
     cron \
     dirmngr \
+    dmidecode \
     gnupg \
     iproute2 \
     iptables \
@@ -25,11 +26,13 @@ RUN /usr/bin/apt-get update && \
     perl \
     procps \
     python3 \
+    snapd \
     strace \
     sudo \
     systemd \
     tcpdump \
     telnet \
+    tzdata \
     udev \
     vim-tiny \
     wget && \

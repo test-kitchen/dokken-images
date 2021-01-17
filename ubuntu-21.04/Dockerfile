@@ -1,5 +1,5 @@
-FROM ubuntu:19.10
-LABEL maintainer="tsmith@chef.io"
+FROM ubuntu:21.04
+LABEL maintainer="tsmith84@gmail.com"
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN /usr/bin/apt-get update && \
@@ -10,6 +10,7 @@ RUN /usr/bin/apt-get update && \
     dbus \
     cron \
     dirmngr \
+    dmidecode \
     gnupg \
     iproute2 \
     iptables \
@@ -24,11 +25,13 @@ RUN /usr/bin/apt-get update && \
     nmap \
     perl \
     procps \
+    snapd \
     strace \
     sudo \
     systemd \
     tcpdump \
     telnet \
+    tzdata \
     udev \
     vim-tiny \
     wget && \

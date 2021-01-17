@@ -1,12 +1,18 @@
 FROM oraclelinux:7
-LABEL maintainer="tsmith@chef.io"
+LABEL maintainer="tsmith84@gmail.com"
 
 RUN yum -y install \
+    binutils \
     ca-certificates \
     cronie \
     curl \
+    dmidecode \
+    ethtool \
+    file \
     gnupg2 \
+    hostname \
     initscripts \
+    iproute \
     iptables \
     iputils \
     lsof \
@@ -18,8 +24,8 @@ RUN yum -y install \
     procps \
     strace \
     sudo \
-    systemd-sysv \
     system-lsb-core \
+    systemd-sysv \
     tcpdump \
     telnet \
     util-linux \

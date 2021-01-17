@@ -1,16 +1,19 @@
-FROM centos:6
+FROM fedora:33
 LABEL maintainer="sean@sean.io"
 
-RUN sed -i '/mirrorlist/d' /etc/yum.repos.d/*.repo
-RUN sed -i -e 's/#baseurl/baseurl/g' /etc/yum.repos.d/*.repo
-RUN sed -i -e 's/mirror.centos.org\/centos\/\$releasever/vault.centos.org\/6.10/g' /etc/yum.repos.d/*.repo
-RUN yum -y install \
+RUN dnf -y install \
+    binutils \
     ca-certificates \
     cronie \
     curl \
     dmidecode \
+    ethtool \
+    file \
+    fipscheck \
     gnupg2 \
+    hostname \
     initscripts \
+    iproute \
     iptables \
     iputils \
     lsof \
@@ -20,18 +23,18 @@ RUN yum -y install \
     openssl \
     passwd \
     procps \
-    redhat-lsb-core \
     strace \
     sudo \
+    systemd-sysv \
+    systemd-udev \
     tcpdump \
     telnet \
-    upstart \
     util-linux \
     vim-minimal \
     wget \
+    libxcrypt-compat \
     which && \
-    yum clean all && \
-    rm -rf /var/cache/yum && \
+    dnf clean all && \
     rm -rf /var/log/*
 
-CMD [ "/sbin/init" ]
+CMD [ "/usr/lib/systemd/systemd" ]

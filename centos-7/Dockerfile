@@ -2,11 +2,18 @@ FROM centos:7
 LABEL maintainer="sean@sean.io"
 
 RUN yum -y install \
+    binutils \
     ca-certificates \
     cronie \
     curl \
+    dmidecode \
+    e2fsprogs \
+    ethtool \
+    file \
     gnupg2 \
+    hostname \
     initscripts \
+    iproute \
     iptables \
     iputils \
     lsof \
@@ -18,8 +25,8 @@ RUN yum -y install \
     procps \
     strace \
     sudo \
-    systemd-sysv \
     system-lsb-core \
+    systemd-sysv \
     tcpdump \
     telnet \
     util-linux \

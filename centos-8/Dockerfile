@@ -1,12 +1,19 @@
 FROM centos:8
-LABEL maintainer="tsmith@chef.io"
+LABEL maintainer="tsmith84@gmail.com"
 
 RUN dnf -y install \
+    binutils \
     ca-certificates \
     cronie \
     curl \
+    dmidecode \
+    e2fsprogs \
+    ethtool \
+    file \
     gnupg2 \
+    hostname \
     initscripts \
+    iproute \
     iptables \
     iputils \
     lsof \
@@ -19,6 +26,7 @@ RUN dnf -y install \
     strace \
     sudo \
     systemd-sysv \
+    systemd-udev \
     redhat-lsb-core \
     tcpdump \
     telnet \
@@ -27,6 +35,7 @@ RUN dnf -y install \
     wget \
     which && \
     dnf upgrade -y && \
-    dnf clean all
+    dnf clean all && \
+    rm -rf /var/log/*
 
 CMD [ "/usr/lib/systemd/systemd" ]

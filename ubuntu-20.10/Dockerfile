@@ -1,5 +1,5 @@
-FROM debian:jessie
-LABEL maintainer="sean@sean.io"
+FROM ubuntu:20.10
+LABEL maintainer="tsmith84@gmail.com"
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN /usr/bin/apt-get update && \
@@ -7,13 +7,16 @@ RUN /usr/bin/apt-get update && \
     apt-transport-https \
     apt-utils \
     curl \
-    cron \
     dbus \
+    cron \
     dirmngr \
+    dmidecode \
     gnupg \
+    iproute2 \
     iptables \
     iputils-ping \
     kmod \
+    linux-base \
     locales \
     lsb-release \
     lsof \
@@ -22,11 +25,13 @@ RUN /usr/bin/apt-get update && \
     nmap \
     perl \
     procps \
+    snapd \
     strace \
     sudo \
     systemd \
     tcpdump \
     telnet \
+    tzdata \
     udev \
     vim-tiny \
     wget && \

@@ -2,9 +2,14 @@ FROM fedora:latest
 LABEL maintainer="sean@sean.io"
 
 RUN dnf -y install \
+    binutils \
     ca-certificates \
     cronie \
     curl \
+    dmidecode \
+    ethtool \
+    file \
+    fipscheck \
     gnupg2 \
     hostname \
     initscripts \
@@ -21,6 +26,7 @@ RUN dnf -y install \
     strace \
     sudo \
     systemd-sysv \
+    systemd-udev \
     tcpdump \
     telnet \
     util-linux \

@@ -1,23 +1,27 @@
 FROM opensuse/leap:15
 LABEL maintainer="sean@sean.io"
 
-RUN zypper install -y aaa_base \
+RUN zypper update -y && \
+    zypper install -y aaa_base \
                       aaa_base-extras \
                       ca-certificates \
-                      curl \
                       cron \
+                      curl \
+                      dmidecode \
                       e2fsprogs \
                       file \
                       findutils \
                       glibc-locale \
                       grep \
+                      gzip \
                       hostname \
+                      insserv-compat \
                       iproute2 \
                       iputils \
                       lsb-release \
                       ncurses-devel \
-                      netcat \
                       net-tools \
+                      netcat \
                       perl-Getopt-Long-Descriptive \
                       sudo \
                       systemd-sysvinit \
@@ -30,7 +34,7 @@ RUN zypper install -y aaa_base \
                       vim \
                       wget \
                       which && \
-                      zypper clean && \
-                      rm -rf /var/log/*
+    zypper clean && \
+    rm -rf /var/log/*
 
 CMD [ "/bin/systemd" ]

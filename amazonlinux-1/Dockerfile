@@ -15,6 +15,7 @@ RUN yum -y install \
     ca-certificates \
     cronie \
     curl \
+    dmidecode \
     gnupg2 \
     initscripts \
     iptables \
@@ -35,7 +36,9 @@ RUN yum -y install \
     util-linux \
     vim-minimal \
     wget \
-    which && \
+    which \
+    zlib \
+    zlib-devel && \
     yum clean all && \
     rm -rf /var/cache/yum && \
     rm -rf /var/log/*
