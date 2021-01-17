@@ -53,12 +53,15 @@ RUN /usr/bin/apt-get update && \
     find /etc/systemd/system \
     /lib/systemd/system \
     -path '*.wants/*' \
-    -not -name '*journald*' \
-    -not -name '*systemd-tmpfiles*' \
-    -not -name '*systemd-user-sessions*' \
-    -exec rm \{} \; && \
+    \( -name '*getty*' \
+    -or -name '*apt-daily*' \
+    -or -name '*systemd-timesyncd*' \
+    -or -name '*systemd-logind*' \
+    -or -name '*systemd-vconsole-setup*' \
+    -or -name '*systemd-readahead*' \
+    -or -name '*udev*' \) \
+    -exec rm -v \{} \; && \
     systemctl set-default multi-user.target && \
-    systemctl disable ondemand.service apparmor.service && \
-    systemctl mask dev-hugepages.mount sys-fs-fuse-connections.mount
+    systemctl mask dev-hugepages.mount sys-fs-fuse-connections.mount network.service
 
 CMD [ "/bin/systemd" ]

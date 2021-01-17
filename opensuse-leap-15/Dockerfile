@@ -50,11 +50,13 @@ RUN zypper update -y && \
     find /etc/systemd/system \
     /usr/lib/systemd/system \
     -path '*.wants/*' \
-    -not -name '*journald*' \
-    -not -name '*systemd-tmpfiles*' \
-    -not -name '*systemd-user-sessions*' \
-    -exec rm \{} \; && \
+    \( -name '*getty*' \
+    -or -name '*systemd-logind*' \
+    -or -name '*systemd-vconsole-setup*' \
+    -or -name '*systemd-readahead*' \
+    -or -name '*udev*' \) \
+    -exec rm -v \{} \; && \
     systemctl set-default multi-user.target && \
-    systemctl mask dev-hugepages.mount sys-fs-fuse-connections.mount
+    systemctl mask dev-hugepages.mount sys-fs-fuse-connections.mount network.service
 
 CMD [ "/bin/systemd" ]

@@ -34,11 +34,15 @@ RUN yum -y install \
     find /etc/systemd/system \
     /lib/systemd/system \
     -path '*.wants/*' \
-    -not -name '*journald*' \
-    -not -name '*systemd-tmpfiles*' \
-    -not -name '*systemd-user-sessions*' \
-    -exec rm \{} \; && \
+    \( -name '*getty*' \
+    -or -name '*postfix*' \
+    -or -name '*systemd-logind*' \
+    -or -name '*systemd-vconsole-setup*' \
+    -or -name '*systemd-readahead*' \
+    -or -name '*systemd-remount-fs*' \
+    -or -name '*udev*' \) \
+    -exec rm -v \{} \; && \
     systemctl set-default multi-user.target && \
-    systemctl mask dev-hugepages.mount sys-fs-fuse-connections.mount
+    systemctl mask dev-hugepages.mount sys-fs-fuse-connections.mount network.service
 
 CMD [ "/usr/lib/systemd/systemd" ]
