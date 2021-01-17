@@ -8,8 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        os:
-          - 'amazonlinux-1'
+        os-with-arm64:
           - 'amazonlinux-2'
           - 'centos-7'
           - 'centos-8'
@@ -28,6 +27,8 @@ jobs:
           - 'ubuntu-20.04'
           - 'ubuntu-20.10'
           - 'ubuntu-21.04'
+        os-without-arm64:
+          - 'amazonlinux'
       fail-fast: false
     steps:
       - name: Checkout
@@ -42,12 +43,21 @@ jobs:
       - name: Short git sha
         run: echo "::set-output name=short::$(echo ${GITHUB_SHA} | cut -c1-8)"
         id: git-sha
-      - name: Build Only
+      - name: Build arm64 and amd64
         id: docker_build
         uses: docker/build-push-action@v2
         with:
           platforms: linux/amd64,linux/arm64
-          file: ./${{ matrix.os }}/Dockerfile
+          file: ./${{ matrix.os-with-arm64 }}/Dockerfile
+          build-args: |
+            BUILD_DATE=${{ steps.build-date.outputs.build_date}}
+            VCS_REF=${{ steps.git-sha.outputs.short }}
+      - name: Build amd64 only
+        id: docker_build
+        uses: docker/build-push-action@v2
+        with:
+          platforms: linux/amd64
+          file: ./${{ matrix.os-without-arm64 }}/Dockerfile
           build-args: |
             BUILD_DATE=${{ steps.build-date.outputs.build_date}}
             VCS_REF=${{ steps.git-sha.outputs.short }}
