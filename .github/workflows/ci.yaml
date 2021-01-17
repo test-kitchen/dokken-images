@@ -4,7 +4,7 @@ on:
   pull_request:
 
 jobs:
-  buildx:
+  buildx-arm64-amd64:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -27,8 +27,6 @@ jobs:
           - 'ubuntu-20.04'
           - 'ubuntu-20.10'
           - 'ubuntu-21.04'
-        os-without-arm64:
-          - 'amazonlinux'
       fail-fast: false
     steps:
       - name: Checkout
@@ -52,6 +50,29 @@ jobs:
           build-args: |
             BUILD_DATE=${{ steps.build-date.outputs.build_date}}
             VCS_REF=${{ steps.git-sha.outputs.short }}
+      - name: Image digest
+        run: echo ${{ steps.docker_build.outputs.digest }}
+
+  buildx-arm64:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os-without-arm64:
+          - 'amazonlinux'
+      fail-fast: false
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+      - name: build-date
+        run: echo "::set-output name=build_date::$(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+        id: build-date
+      - name: Short git sha
+        run: echo "::set-output name=short::$(echo ${GITHUB_SHA} | cut -c1-8)"
+        id: git-sha
       - name: Build amd64 only
         id: docker_build
         uses: docker/build-push-action@v2
