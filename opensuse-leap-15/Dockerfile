@@ -45,6 +45,18 @@ RUN zypper update -y && \
                       wget \
                       which && \
     zypper clean && \
-    rm -rf /var/log/*
+    rm -rf /var/log/* && \
+    # Don't start any optional services.
+    find /etc/systemd/system \
+    /usr/lib/systemd/system \
+    -path '*.wants/*' \
+    \( -name '*getty*' \
+    -or -name '*systemd-logind*' \
+    -or -name '*systemd-vconsole-setup*' \
+    -or -name '*systemd-readahead*' \
+    -or -name '*udev*' \) \
+    -exec rm -v \{} \; && \
+    systemctl set-default multi-user.target && \
+    systemctl mask dev-hugepages.mount sys-fs-fuse-connections.mount network.service
 
 CMD [ "/bin/systemd" ]

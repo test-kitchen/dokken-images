@@ -45,6 +45,18 @@ RUN yum -y install \
     which && \
     yum clean all && \
     rm -rf /var/cache/yum && \
-    rm -rf /var/log/*
+    rm -rf /var/log/* && \
+    # Don't start any optional services.
+    find /etc/systemd/system \
+    /lib/systemd/system \
+    -path '*.wants/*' \
+    \( -name '*getty*' \
+    -or -name '*systemd-logind*' \
+    -or -name '*systemd-vconsole-setup*' \
+    -or -name '*systemd-readahead*' \
+    -or -name '*udev*' \) \
+    -exec rm -v \{} \; && \
+    systemctl set-default multi-user.target && \
+    systemctl mask dev-hugepages.mount sys-fs-fuse-connections.mount network.service
 
 CMD [ "/usr/lib/systemd/systemd" ]
