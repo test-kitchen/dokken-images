@@ -1,5 +1,15 @@
 FROM centos:6
 LABEL maintainer="sean@sean.io"
+ARG BUILD_DATE
+ARG VCS_REF
+
+LABEL org.label-schema.schema-version="1.0"
+LABEL org.label-schema.build-date=$BUILD_DATE
+LABEL org.label-schema.name="test-kitechen/dokken-images"
+LABEL org.label-schema.description="A docker container for testing centos-6"
+LABEL org.label-schema.vcs-url="https://github.com/test-kitechen/dokken-images"
+LABEL org.label-schema.vcs-ref=$VCS_REF
+LABEL org.label-schema.vendor="test-kitchen"
 
 RUN sed -i '/mirrorlist/d' /etc/yum.repos.d/*.repo
 RUN sed -i -e 's/#baseurl/baseurl/g' /etc/yum.repos.d/*.repo
