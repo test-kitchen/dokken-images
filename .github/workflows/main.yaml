@@ -96,7 +96,7 @@ jobs:
           push: true
           tags: |
             dokken/${{ matrix.os-without-arm64 }}:latest
-          platforms: linux/amd64,linux/arm64
+          platforms: linux/amd64
           file: ./${{ matrix.os-without-arm64 }}/Dockerfile
           build-args: |
             BUILD_DATE=${{ steps.build-date.outputs.build_date}}
