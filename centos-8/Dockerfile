@@ -20,6 +20,7 @@ RUN dnf -y install \
     e2fsprogs \
     ethtool \
     file \
+    glibc-langpack-en \
     gnupg2 \
     hostname \
     initscripts \
