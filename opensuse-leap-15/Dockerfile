@@ -28,6 +28,7 @@ RUN zypper update -y && \
                       insserv-compat \
                       iproute2 \
                       iputils \
+                      less \
                       lsb-release \
                       ncurses-devel \
                       net-tools \

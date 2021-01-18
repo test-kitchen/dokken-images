@@ -27,6 +27,7 @@ RUN /usr/bin/apt-get update && \
     iputils-ping \
     kmod \
     linux-base \
+    less \
     locales \
     lsb-release \
     lsof \

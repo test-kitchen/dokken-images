@@ -26,6 +26,7 @@ RUN yum -y install \
     iproute \
     iptables \
     iputils \
+    less \
     lsof \
     nc \
     net-tools \
