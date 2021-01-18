@@ -26,6 +26,7 @@ RUN /usr/bin/apt-get update && \
     iptables \
     iputils-ping \
     kmod \
+    less \
     linux-base \
     locales \
     lsb-release \
