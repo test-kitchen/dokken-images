@@ -70,6 +70,8 @@ jobs:
       matrix:
         os-without-arm64:
           - 'amazonlinux'
+          - 'oraclelinux-6'
+          - 'centos-6'
       fail-fast: false
     steps:
       - name: Checkout
