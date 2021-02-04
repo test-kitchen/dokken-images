@@ -1,5 +1,5 @@
 FROM centos:8
-LABEL maintainer="tsmith84@gmail.com"
+LABEL maintainer="lance@osuosl.org"
 ARG BUILD_DATE
 ARG VCS_REF
 
