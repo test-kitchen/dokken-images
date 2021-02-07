@@ -70,9 +70,10 @@ jobs:
     strategy:
       matrix:
         os-without-arm64:
+          - 'almalinux-8'
           - 'amazonlinux'
-          - 'oraclelinux-6'
           - 'centos-6'
+          - 'oraclelinux-6'
       fail-fast: false
     steps:
       - name: Checkout
