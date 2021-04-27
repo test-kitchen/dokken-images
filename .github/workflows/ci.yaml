@@ -22,7 +22,6 @@ jobs:
           - 'opensuse-leap-15'
           - 'oraclelinux-7'
           - 'oraclelinux-8'
-          - 'ubuntu-16.04'
           - 'ubuntu-18.04'
           - 'ubuntu-20.04'
           - 'ubuntu-20.10'
