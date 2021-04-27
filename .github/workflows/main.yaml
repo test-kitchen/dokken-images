@@ -71,7 +71,6 @@ jobs:
         os-without-arm64:
           - 'almalinux-8'
           - 'amazonlinux'
-          - 'centos-6'
           - 'oraclelinux-6'
       fail-fast: false
     steps:
