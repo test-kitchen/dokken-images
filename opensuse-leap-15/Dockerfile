@@ -1,4 +1,4 @@
-FROM opensuse/leap:15
+FROM opensuse/leap:15.2
 LABEL maintainer="sean@sean.io"
 ARG BUILD_DATE
 ARG VCS_REF
@@ -35,6 +35,7 @@ RUN zypper update -y && \
                       netcat \
                       perl-Getopt-Long-Descriptive \
                       sudo \
+                      systemd \
                       systemd-sysvinit \
                       sysvinit-tools \
                       tar \
