@@ -23,6 +23,7 @@ jobs:
           - 'opensuse-leap-15'
           - 'oraclelinux-7'
           - 'oraclelinux-8'
+          - 'rockylinux-8'
           - 'ubuntu-18.04'
           - 'ubuntu-20.04'
           - 'ubuntu-21.04'
