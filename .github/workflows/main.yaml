@@ -12,6 +12,7 @@ jobs:
     strategy:
       matrix:
         os-with-arm64:
+          - 'almalinux-8'
           - 'amazonlinux-2'
           - 'centos-7'
           - 'centos-8'
@@ -68,7 +69,6 @@ jobs:
     strategy:
       matrix:
         os-without-arm64:
-          - 'almalinux-8'
           - 'oraclelinux-6'
       fail-fast: false
     steps:
