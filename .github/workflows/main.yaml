@@ -19,7 +19,6 @@ jobs:
           - 'debian-9'
           - 'debian-10'
           - 'debian-11'
-          - 'fedora-32'
           - 'fedora-33'
           - 'fedora-34'
           - 'fedora-latest'
@@ -28,8 +27,8 @@ jobs:
           - 'oraclelinux-8'
           - 'ubuntu-18.04'
           - 'ubuntu-20.04'
-          - 'ubuntu-20.10'
           - 'ubuntu-21.04'
+          - 'ubuntu-21.10'
       fail-fast: false
     steps:
       - name: Checkout
@@ -70,7 +69,6 @@ jobs:
       matrix:
         os-without-arm64:
           - 'almalinux-8'
-          - 'amazonlinux'
           - 'oraclelinux-6'
       fail-fast: false
     steps:
