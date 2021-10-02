@@ -27,6 +27,8 @@ jobs:
           - 'rockylinux-8'
           - 'oraclelinux-7'
           - 'oraclelinux-8'
+          - 'ubuntu-14.04'
+          - 'ubuntu-16.04'
           - 'ubuntu-18.04'
           - 'ubuntu-20.04'
           - 'ubuntu-21.04'
