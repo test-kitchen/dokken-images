@@ -13,6 +13,7 @@ LABEL org.label-schema.vendor="test-kitchen"
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN /usr/bin/apt-get update && \
+    /usr/bin/apt-get dist-upgrade -y && \
     /usr/bin/apt-get -y install \
     apt-transport-https \
     apt-utils \
