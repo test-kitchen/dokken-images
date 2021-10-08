@@ -61,6 +61,7 @@ jobs:
     strategy:
       matrix:
         os-without-arm64:
+          - 'centos-6'
           - 'oraclelinux-6'
       fail-fast: false
     steps:
