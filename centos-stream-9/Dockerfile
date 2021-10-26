@@ -1,4 +1,4 @@
-FROM quay.io/centos/centos:stream8
+FROM quay.io/centos/centos:stream9
 LABEL maintainer="lance@osuosl.org"
 ARG BUILD_DATE
 ARG VCS_REF
@@ -6,11 +6,12 @@ ARG VCS_REF
 LABEL org.label-schema.schema-version="1.0"
 LABEL org.label-schema.build-date=$BUILD_DATE
 LABEL org.label-schema.name="test-kitchen/dokken-images"
-LABEL org.label-schema.description="A Docker container for testing centos-stream-8"
+LABEL org.label-schema.description="A Docker container for testing centos-stream-9"
 LABEL org.label-schema.vcs-url="https://github.com/test-kitchen/dokken-images"
 LABEL org.label-schema.vcs-ref=$VCS_REF
 LABEL org.label-schema.vendor="test-kitchen"
 
+# NOTE: CentOS Stream 9 is still under heavy development
 RUN dnf -y install \
     binutils \
     ca-certificates \
@@ -38,7 +39,8 @@ RUN dnf -y install \
     sudo \
     systemd-sysv \
     systemd-udev \
-    redhat-lsb-core \
+# Not available (yet)
+#    redhat-lsb-core \
     tcpdump \
     telnet \
     util-linux \
