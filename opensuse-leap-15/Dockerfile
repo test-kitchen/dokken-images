@@ -1,4 +1,4 @@
-FROM opensuse/leap:15.2
+FROM opensuse/leap:15
 LABEL maintainer="sean@sean.io"
 ARG BUILD_DATE
 ARG VCS_REF
