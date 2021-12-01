@@ -20,6 +20,7 @@ jobs:
           - 'debian-11'
           - 'fedora-33'
           - 'fedora-34'
+          - 'fedora-35'
           - 'fedora-latest'
           - 'opensuse-leap-15'
           - 'oraclelinux-7'
