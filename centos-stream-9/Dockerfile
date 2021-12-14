@@ -12,7 +12,7 @@ LABEL org.label-schema.vcs-ref=$VCS_REF
 LABEL org.label-schema.vendor="test-kitchen"
 
 # NOTE: CentOS Stream 9 is still under heavy development
-RUN dnf -y install \
+RUN dnf --allowerasing -y install \
     binutils \
     ca-certificates \
     cronie \
