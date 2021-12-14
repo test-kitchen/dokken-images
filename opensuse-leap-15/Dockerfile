@@ -61,4 +61,4 @@ RUN zypper update -y && \
     systemctl set-default multi-user.target && \
     systemctl mask dev-hugepages.mount sys-fs-fuse-connections.mount network.service
 
-CMD [ "/bin/systemd" ]
+CMD [ "/usr/lib/systemd/systemd" ]
