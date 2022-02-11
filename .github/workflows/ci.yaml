@@ -11,6 +11,7 @@ jobs:
         os-with-arm64:
           - 'almalinux-8'
           - 'amazonlinux-2'
+          - 'amazonlinux-2022'
           - 'centos-7'
           - 'centos-8'
           - 'centos-stream-8'
@@ -18,7 +19,6 @@ jobs:
           - 'debian-9'
           - 'debian-10'
           - 'debian-11'
-          - 'fedora-33'
           - 'fedora-34'
           - 'fedora-35'
           - 'fedora-latest'
