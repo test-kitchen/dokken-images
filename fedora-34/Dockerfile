@@ -1,5 +1,5 @@
 FROM fedora:34
-LABEL maintainer="tsmith@chef.io"
+LABEL maintainer="tsmith84@gmail.com"
 ARG BUILD_DATE
 ARG VCS_REF
 
