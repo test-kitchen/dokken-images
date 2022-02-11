@@ -14,6 +14,7 @@ jobs:
         os-with-arm64:
           - 'almalinux-8'
           - 'amazonlinux-2'
+          - 'amazonlinux-2022'
           - 'centos-7'
           - 'centos-8'
           - 'centos-stream-8'
