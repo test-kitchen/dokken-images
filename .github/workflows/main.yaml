@@ -3,7 +3,7 @@ name: build-and-push
 on:
   push:
     branches:
-      - master
+      - main
   schedule:
   - cron: "0 0 * * *"
 jobs:
