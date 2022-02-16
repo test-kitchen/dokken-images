@@ -13,7 +13,7 @@ LABEL org.label-schema.vendor="test-kitchen"
 
 RUN sed -i '/mirrorlist/d' /etc/yum.repos.d/*.repo
 RUN sed -i -e 's/#baseurl/baseurl/g' /etc/yum.repos.d/*.repo
-RUN sed -i -e 's/mirror.centos.org\/centos\/\$releasever/vault.centos.org\/6.10/g' /etc/yum.repos.d/*.repo
+RUN sed -i -e 's/mirror.centos.org\/centos\/\$releasever/mirrors.vcea.wsu.edu\/centos-vault\/6.10/g' /etc/yum.repos.d/*.repo
 RUN yum -y install \
     ca-certificates \
     cronie \
