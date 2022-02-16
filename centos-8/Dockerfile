@@ -13,7 +13,7 @@ LABEL org.label-schema.vendor="test-kitchen"
 
 RUN sed -i '/mirrorlist/d' /etc/yum.repos.d/*.repo
 RUN sed -i -e 's/#baseurl/baseurl/g' /etc/yum.repos.d/*.repo
-RUN sed -i -e 's/mirror.centos.org\/$contentdir\/\$releasever/vault.centos.org\/8.5.2111/g' /etc/yum.repos.d/*.repo
+RUN sed -i -e 's/mirror.centos.org\/$contentdir\/\$releasever/mirrors.vcea.wsu.edu\/centos-vault\/8.5.2111/g' /etc/yum.repos.d/*.repo
 RUN dnf -y install \
     binutils \
     ca-certificates \
