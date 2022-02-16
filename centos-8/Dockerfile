@@ -11,6 +11,9 @@ LABEL org.label-schema.vcs-url="https://github.com/test-kitchen/dokken-images"
 LABEL org.label-schema.vcs-ref=$VCS_REF
 LABEL org.label-schema.vendor="test-kitchen"
 
+RUN sed -i '/mirrorlist/d' /etc/yum.repos.d/*.repo
+RUN sed -i -e 's/#baseurl/baseurl/g' /etc/yum.repos.d/*.repo
+RUN sed -i -e 's/mirror.centos.org\/$contentdir\/\$releasever/vault.centos.org\/8.5.2111/g' /etc/yum.repos.d/*.repo
 RUN dnf -y install \
     binutils \
     ca-certificates \
