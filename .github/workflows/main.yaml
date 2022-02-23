@@ -27,6 +27,8 @@ jobs:
           - 'fedora-35'
           - 'fedora-latest'
           - 'opensuse-leap-15'
+          - 'opensuse-leap-15.3'
+          - 'opensuse-leap-15.4'
           - 'rockylinux-8'
           - 'oraclelinux-7'
           - 'oraclelinux-8'
