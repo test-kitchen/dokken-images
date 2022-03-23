@@ -1,4 +1,4 @@
-FROM almalinux/almalinux:8
+FROM almalinux:8
 LABEL maintainer="tsmith84@gmail.com"
 ARG BUILD_DATE
 ARG VCS_REF
