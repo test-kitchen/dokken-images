@@ -40,6 +40,7 @@ RUN yum -y install \
     vim-minimal \
     wget \
     which && \
+    yum upgrade -y && \
     yum clean all && \
     rm -rf /var/cache/yum && \
     rm -rf /var/log/*
