@@ -1,14 +1,9 @@
-Images for use with kitchen-dokken
-==================================
-For use with [kitchen-dokken](https://github.com/test-kitchen/kitchen-dokken) published to [Docker Hub](https://hub.docker.com/r/dokken/).
+# Docker images for use with kitchen-dokken
 
-Overview
-========
-Distro provided Docker images are very minimal. Most of the time, when
-using `kitchen-dokken` to develop Chef Infra recipes, you'll need to install
-various packages into the image as a prerequisite for testing.
+Docker images for various operating systems built specifically for use with the Test Kitchen plugin [kitchen-dokken](https://kitchen.ci/docs/drivers/dokken/). Use these images as stand-ins for full OS installations in your CI pipelines or for quick local testing.
 
-Tired of doing that over and over again?
-Builds feel slower than they could be?
+All images are published to [Docker Hub](https://hub.docker.com/r/dokken/).
 
-Use the images in this repo speed things up a bit.
+## Why Do We Need These?
+
+Operating system vendors publish their own Docker images, but these images are very minimal. Vendor images are optimized for running applications in Docker or Kubernetes clusters. When testing Chef Infra cookbooks, we need Docker images that look like a fresh install of the OS. That means we need common OS utilities or even a complete systemd installation. These Dokken images are loaded with additional packages to make them more like a VM or cloud instance so you can quickly test without issues.
