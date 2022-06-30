@@ -7,53 +7,6 @@ on:
   schedule:
   - cron: "0 0 * * *"
 jobs:
-  update-descriptions:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        os-with-arm64:
-          - 'almalinux-8'
-          - 'almalinux-9'
-          - 'amazonlinux-2'
-          - 'amazonlinux-2022'
-          - 'centos-7'
-          - 'centos-8'
-          - 'centos-stream-8'
-          - 'centos-stream-9'
-          - 'debian-9'
-          - 'debian-10'
-          - 'debian-11'
-          - 'debian-12'
-          - 'fedora-34'
-          - 'fedora-35'
-          - 'fedora-36'
-          - 'fedora-37'
-          - 'fedora-latest'
-          - 'opensuse-leap-15'
-          - 'opensuse-leap-15.3'
-          - 'opensuse-leap-15.4'
-          - 'rockylinux-8'
-          - 'oraclelinux-7'
-          - 'oraclelinux-8'
-          - 'ubuntu-14.04'
-          - 'ubuntu-16.04'
-          - 'ubuntu-18.04'
-          - 'ubuntu-20.04'
-          - 'ubuntu-21.04'
-          - 'ubuntu-21.10'
-          - 'ubuntu-22.04'
-          - 'ubuntu-22.10'
-      fail-fast: false
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Update Docker Hub Description
-        uses: peter-evans/dockerhub-description@v3
-        with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-          repository: peterevans/dockerhub-description
-
   buildx-arm64-amd64:
     runs-on: ubuntu-latest
     strategy:
@@ -93,7 +46,7 @@ jobs:
       fail-fast: false
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
       - name: Set up Docker Buildx
@@ -123,6 +76,11 @@ jobs:
             VCS_REF=${{ steps.git-sha.outputs.short }}
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
+      - name: Update Docker Hub Description
+        uses: peter-evans/dockerhub-description@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
 
   buildx-amd64:
     runs-on: ubuntu-latest
@@ -134,7 +92,7 @@ jobs:
       fail-fast: false
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
       - name: Set up Docker Buildx
@@ -164,3 +122,8 @@ jobs:
             VCS_REF=${{ steps.git-sha.outputs.short }}
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
+      - name: Update Docker Hub Description
+        uses: peter-evans/dockerhub-description@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
