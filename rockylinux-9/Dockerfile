@@ -1,4 +1,4 @@
-FROM rockylinux/rockylinux:9
+FROM rockylinux:9
 LABEL maintainer="tsmith84@gmail.com"
 ARG BUILD_DATE
 ARG VCS_REF
