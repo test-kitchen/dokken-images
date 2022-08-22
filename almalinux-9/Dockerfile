@@ -18,7 +18,6 @@ RUN dnf -y install \
     ca-certificates \
     cronie \
     crontabs \
-    curl \
     diffutils \
     dmidecode \
     e2fsprogs \
