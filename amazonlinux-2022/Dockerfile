@@ -15,12 +15,12 @@ RUN dnf -y install \
     binutils \
     ca-certificates \
     cronie \
-    curl \
+    curl-minimal \
     dmidecode \
     ethtool \
     file \
     fipscheck \
-    gnupg2 \
+    gnupg2-minimal \
     hostname \
     initscripts \
     iproute \
