@@ -12,6 +12,10 @@ LABEL org.label-schema.vcs-ref=$VCS_REF
 LABEL org.label-schema.vendor="test-kitchen"
 
 RUN yum -y install \
+    yum-plugin-copr && \
+    yum -y copr enable jsynacek/systemd-backports-for-centos-7 && \
+    yum -y update systemd && \
+    yum -y install \
     binutils \
     ca-certificates \
     cronie \
