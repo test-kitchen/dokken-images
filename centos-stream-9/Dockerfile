@@ -46,6 +46,7 @@ RUN dnf --allowerasing -y install \
     util-linux \
     vim-minimal \
     wget \
+    libxcrypt-compat \
     which && \
     dnf upgrade -y && \
     dnf clean all && \
