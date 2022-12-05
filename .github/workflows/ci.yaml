@@ -57,7 +57,7 @@ jobs:
         id: git-sha
       - name: Build arm64 and amd64
         id: docker_build
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v3
         with:
           platforms: linux/amd64,linux/arm64
           file: ./${{ matrix.os-with-arm64 }}/Dockerfile
@@ -90,7 +90,7 @@ jobs:
         id: git-sha
       - name: Build amd64 only
         id: docker_build
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v3
         with:
           platforms: linux/amd64
           file: ./${{ matrix.os-without-arm64 }}/Dockerfile
