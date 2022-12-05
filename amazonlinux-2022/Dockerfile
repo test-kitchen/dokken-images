@@ -45,6 +45,7 @@ RUN dnf -y install \
     wget \
     libxcrypt-compat \
     which && \
+    yum upgrade -y && \
     dnf clean all && \
     rm -rf /var/log/* && \
     # Don't start any optional services.
