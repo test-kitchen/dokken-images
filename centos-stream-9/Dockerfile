@@ -39,8 +39,7 @@ RUN dnf --allowerasing -y install \
     sudo \
     systemd-sysv \
     systemd-udev \
-# Not available (yet)
-#    redhat-lsb-core \
+   redhat-lsb-core \
     tcpdump \
     telnet \
     util-linux \
