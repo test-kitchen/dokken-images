@@ -4,8 +4,7 @@ name: build-and-push
   pull_request:
   push:
     branches: [main]
-  schedule:
-    - cron: "0 0 * * *"
+  schedule: [cron: "0 0 * * *"]
 
 jobs:
   buildx-arm64-amd64:
@@ -46,7 +45,6 @@ jobs:
           - "ubuntu-20.04"
           - "ubuntu-22.04"
           - "ubuntu-22.10"
-
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -62,7 +60,7 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: |
-            ghcr.io/dokken/${{ matrix.os-with-arm64 }}
+            ghcr.io/test-kitchen/dokken/${{ matrix.os-with-arm64 }}
             dokken/${{ matrix.os-with-arm64 }}
           tags: |
             type=schedule
@@ -120,7 +118,7 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: |
-            ghcr.io/dokken/${{ matrix.os-without-arm64 }}
+            ghcr.io/test-kitchen/dokken/${{ matrix.os-without-arm64 }}
             dokken/${{ matrix.os-without-arm64 }}
           tags: |
             type=schedule
