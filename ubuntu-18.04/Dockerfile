@@ -13,10 +13,8 @@ LABEL org.label-schema.vendor="test-kitchen"
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-# hadolint ignore=DL3041,DL3004
-RUN dnf -y install \
-	/usr/bin/apt-get dist-upgrade -y && \
-	/usr/bin/apt-get -y install \
+# hadolint ignore=DL3008,DL3015,DL3004
+RUN apt-get -y install \
 	apt-transport-https \
 	apt-utils \
 	curl \

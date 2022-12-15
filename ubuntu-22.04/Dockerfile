@@ -13,10 +13,8 @@ LABEL org.label-schema.vendor="test-kitchen"
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-# hadolint ignore=DL3041
-RUN dnf -y install \
-	/usr/bin/apt-get dist-upgrade -y && \
-	/usr/bin/apt-get -y install \
+# hadolint ignore=DL3008,DL3015
+RUN apt-get -y install \
 	apt-transport-https \
 	apt-utils \
 	curl \
@@ -49,8 +47,8 @@ RUN dnf -y install \
 	udev \
 	vim-tiny \
 	wget && \
-	/usr/bin/apt-get clean && \
-	/usr/bin/apt-get -y autoremove && \
+	apt-get clean && \
+	apt-get -y autoremove && \
 	rm -rf /tmp/* /var/tmp/* && \
 	# Don't start any optional services.
 	find /etc/systemd/system \
