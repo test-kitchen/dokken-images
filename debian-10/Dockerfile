@@ -11,7 +11,6 @@ LABEL org.label-schema.vcs-url="https://github.com/test-kitchen/dokken-images"
 LABEL org.label-schema.vcs-ref=$VCS_REF
 LABEL org.label-schema.vendor="test-kitchen"
 
-
 ENV DEBIAN_FRONTEND noninteractive
 RUN /usr/bin/apt-get update && \
     /usr/bin/apt-get -y install \
