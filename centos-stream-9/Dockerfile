@@ -40,7 +40,6 @@ RUN dnf --allowerasing -y install \
 	sudo \
 	systemd-sysv \
 	systemd-udev \
-	redhat-lsb-core \
 	tcpdump \
 	telnet \
 	util-linux \
@@ -51,11 +50,10 @@ RUN dnf --allowerasing -y install \
 	dnf upgrade -y && \
 	dnf clean all && \
 	rm -rf /var/log/* && \
-	# Don't start any optional services.
 	find /etc/systemd/system \
 	/lib/systemd/system \
 	-path '*.wants/*' \
-	( -name '*getty*' \
+	\( -name '*getty*' \
 	-or -name '*systemd-logind*' \
 	-or -name '*systemd-vconsole-setup*' \
 	-or -name '*systemd-readahead*' \

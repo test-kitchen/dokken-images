@@ -11,11 +11,11 @@ LABEL org.label-schema.vcs-url="https://github.com/test-kitchen/dokken-images"
 LABEL org.label-schema.vcs-ref=$VCS_REF
 LABEL org.label-schema.vendor="test-kitchen"
 
-ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 
 # hadolint ignore=DL3041
-RUN /usr/bin/apt-get update && \
-	/usr/bin/apt-get -y install \
+RUN apt-get update && \
+	apt-get -y install \
 	apt-transport-https \
 	apt-utils \
 	cron \
@@ -45,15 +45,14 @@ RUN /usr/bin/apt-get update && \
 	udev \
 	vim-tiny \
 	wget && \
-	/usr/bin/apt-get clean && \
-	/usr/bin/apt-get -y autoremove && \
+	apt-get clean && \
+	apt-get -y autoremove && \
 	rm -rf /tmp/* /var/tmp/* && \
-	sudo ln -s /bin/mkdir /usr/bin/mkdir && \
-	# Don't start any optional services.
+	sudo ln -s /bin/mkdir mkdir && \
 	find /etc/systemd/system \
 	/lib/systemd/system \
 	-path '*.wants/*' \
-	( -name '*getty*' \
+	\( -name '*getty*' \
 	-or -name '*apt-daily*' \
 	-or -name '*systemd-timesyncd*' \
 	-or -name '*systemd-logind*' \

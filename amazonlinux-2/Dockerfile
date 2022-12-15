@@ -53,7 +53,7 @@ RUN yum -y install \
 	find /etc/systemd/system \
 	/lib/systemd/system \
 	-path '*.wants/*' \
-	( -name '*getty*' \
+	\( -name '*getty*' \
 	-or -name '*postfix*' \
 	-or -name '*systemd-logind*' \
 	-or -name '*systemd-vconsole-setup*' \

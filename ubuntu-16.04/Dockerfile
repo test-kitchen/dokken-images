@@ -11,12 +11,11 @@ LABEL org.label-schema.vcs-url="https://github.com/test-kitchen/dokken-images"
 LABEL org.label-schema.vcs-ref=$VCS_REF
 LABEL org.label-schema.vendor="test-kitchen"
 
-ENV DEBIAN_FRONTEND
+ENV DEBIAN_FRONTEND=noninteractive
 
-# hadolint ignore=DL3041
-RUN dnf -y install \
-	/usr/bin/apt-get dist-upgrade -y && \
-	/usr/bin/apt-get -y install \
+# hadolint ignore=DL3041,DL3004,DL3008,DL3015
+RUN apt-get update && \
+	apt-get -y install \
 	apt-transport-https \
 	apt-utils \
 	curl \
@@ -49,11 +48,10 @@ RUN dnf -y install \
 	udev \
 	vim-tiny \
 	wget && \
-	/usr/bin/apt-get clean && \
-	/usr/bin/apt-get -y autoremove && \
+	apt-get clean && \
+	apt-get -y autoremove && \
 	rm -rf /tmp/* /var/tmp/* && \
 	sudo ln -s /bin/mkdir /usr/bin/mkdir && \
-	# Don't start any optional services.
 	find /etc/systemd/system \
 	/lib/systemd/system \
 	-path '*.wants/*' \
