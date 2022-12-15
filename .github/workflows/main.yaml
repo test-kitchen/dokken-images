@@ -25,8 +25,6 @@ jobs:
           - "debian-10"
           - "debian-11"
           - "debian-12"
-          - "fedora-34"
-          - "fedora-35"
           - "fedora-36"
           - "fedora-37"
           - "fedora-38"
