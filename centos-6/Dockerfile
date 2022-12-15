@@ -11,38 +11,39 @@ LABEL org.label-schema.vcs-url="https://github.com/test-kitchen/dokken-images"
 LABEL org.label-schema.vcs-ref=$VCS_REF
 LABEL org.label-schema.vendor="test-kitchen"
 
-RUN sed -i '/mirrorlist/d' /etc/yum.repos.d/*.repo
-RUN sed -i -e 's/#baseurl/baseurl/g' /etc/yum.repos.d/*.repo
-RUN sed -i -e 's/mirror.centos.org\/centos\/\$releasever/mirrors.vcea.wsu.edu\/centos-vault\/6.10/g' /etc/yum.repos.d/*.repo
-RUN yum -y install \
-    ca-certificates \
-    cronie \
-    curl \
-    dmidecode \
-    gnupg2 \
-    initscripts \
-    iptables \
-    iputils \
-    lsof \
-    nc \
-    net-tools \
-    nmap \
-    openssl \
-    passwd \
-    procps \
-    redhat-lsb-core \
-    strace \
-    sudo \
-    tcpdump \
-    telnet \
-    upstart \
-    util-linux \
-    vim-minimal \
-    wget \
-    which && \
-    yum upgrade -y && \
-    yum clean all && \
-    rm -rf /var/cache/yum && \
-    rm -rf /var/log/*
+# hadolint ignore=DL3033,SC2016
+RUN sed -i '/mirrorlist/d' /etc/yum.repos.d/*.repo && \
+	sed -i -e 's/#baseurl/baseurl/g' /etc/yum.repos.d/*.repo && \
+	sed -i -e 's/mirror.centos.org\/centos\/\$releasever/mirrors.vcea.wsu.edu\/centos-vault\/6.10/g' /etc/yum.repos.d/*.repo && \
+	yum -y install \
+	ca-certificates \
+	cronie \
+	curl \
+	dmidecode \
+	gnupg2 \
+	initscripts \
+	iptables \
+	iputils \
+	lsof \
+	nc \
+	net-tools \
+	nmap \
+	openssl \
+	passwd \
+	procps \
+	redhat-lsb-core \
+	strace \
+	sudo \
+	tcpdump \
+	telnet \
+	upstart \
+	util-linux \
+	vim-minimal \
+	wget \
+	which && \
+	yum upgrade -y && \
+	yum clean all && \
+	rm -rf /var/cache/yum && \
+	rm -rf /var/log/*
 
 CMD [ "/sbin/init" ]
