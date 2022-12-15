@@ -14,7 +14,8 @@ LABEL org.label-schema.vendor="test-kitchen"
 ENV DEBIAN_FRONTEND=noninteractive
 
 # hadolint ignore=DL3008,DL3015
-RUN apt-get -y install \
+RUN apt-get update && \
+	apt-get -y install \
 	apt-transport-https \
 	apt-utils \
 	curl \
@@ -50,7 +51,6 @@ RUN apt-get -y install \
 	apt-get clean && \
 	apt-get -y autoremove && \
 	rm -rf /tmp/* /var/tmp/* && \
-	# Don't start any optional services.
 	find /etc/systemd/system \
 	/lib/systemd/system \
 	-path '*.wants/*' \
