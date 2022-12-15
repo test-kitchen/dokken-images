@@ -11,6 +11,7 @@ LABEL org.label-schema.vcs-url="https://github.com/test-kitchen/dokken-images"
 LABEL org.label-schema.vcs-ref=$VCS_REF
 LABEL org.label-schema.vendor="test-kitchen"
 
+# hadolint ignore=DL3037
 RUN zypper update -y && \
 	zypper install -y \
 	aaa_base \
@@ -53,12 +54,12 @@ RUN zypper update -y && \
 	find /etc/systemd/system \
 	/usr/lib/systemd/system \
 	-path '*.wants/*' \
-	\( -name '*getty*' \
+	( -name '*getty*' \
 	-or -name '*systemd-logind*' \
 	-or -name '*systemd-vconsole-setup*' \
 	-or -name '*systemd-readahead*' \
 	-or -name '*udev*' \) \
-	-exec rm -v \{} \; && \
+	-exec rm -v {} \; && \
 	systemctl set-default multi-user.target && \
 	systemctl mask dev-hugepages.mount sys-fs-fuse-connections.mount network.service
 

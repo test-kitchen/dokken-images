@@ -12,6 +12,7 @@ LABEL org.label-schema.vcs-ref=$VCS_REF
 LABEL org.label-schema.vendor="test-kitchen"
 
 # NOTE: CentOS Stream 9 is still under heavy development
+# hadolint ignore=DL3041
 RUN dnf --allowerasing -y install \
 	binutils \
 	ca-certificates \
@@ -54,14 +55,14 @@ RUN dnf --allowerasing -y install \
 	find /etc/systemd/system \
 	/lib/systemd/system \
 	-path '*.wants/*' \
-	\( -name '*getty*' \
+	( -name '*getty*' \
 	-or -name '*systemd-logind*' \
 	-or -name '*systemd-vconsole-setup*' \
 	-or -name '*systemd-readahead*' \
 	-or -name '*kdump*' \
 	-or -name '*dnf-makecache*' \
 	-or -name '*udev*' \) \
-	-exec rm -v \{} \; && \
+	-exec rm -v {} \; && \
 	systemctl set-default multi-user.target && \
 	systemctl mask dev-hugepages.mount sys-fs-fuse-connections.mount network.service
 
