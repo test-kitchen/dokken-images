@@ -12,7 +12,7 @@ LABEL org.label-schema.vcs-ref=$VCS_REF
 LABEL org.label-schema.vendor="test-kitchen"
 
 # hadolint ignore=DL3041
-RUN dnf -y install \
+RUN dnf --allowerasing -y install \
 	at \
 	binutils \
 	bc \
