@@ -60,6 +60,6 @@ RUN dnf -y install \
 	-or -name '*udev*' \) \
 	-exec rm -v {} \; && \
 	systemctl set-default multi-user.target && \
-	systemctl mask dev-hugepages.mount sys-fs-fuse-connections.mount network.service
+	systemctl mask dev-hugepages.mount sys-fs-fuse-connections.mount network.service systemd-journal-flush.service
 
 CMD [ "/usr/lib/systemd/systemd" ]
