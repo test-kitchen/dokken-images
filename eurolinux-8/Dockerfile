@@ -1,4 +1,4 @@
-FROM fedora:38
+FROM eurolinux/eurolinux-8
 LABEL maintainer="tim@mondoo.com"
 ARG BUILD_DATE
 ARG VCS_REF
@@ -6,7 +6,7 @@ ARG VCS_REF
 LABEL org.label-schema.schema-version="1.0"
 LABEL org.label-schema.build-date=$BUILD_DATE
 LABEL org.label-schema.name="test-kitchen/dokken-images"
-LABEL org.label-schema.description="A Docker container for testing fedora-38"
+LABEL org.label-schema.description="A Docker container for testing eurolinux-8"
 LABEL org.label-schema.vcs-url="https://github.com/test-kitchen/dokken-images"
 LABEL org.label-schema.vcs-ref=$VCS_REF
 LABEL org.label-schema.vendor="test-kitchen"
@@ -18,16 +18,16 @@ RUN dnf -y install \
 	cronie \
 	curl \
 	dmidecode \
+	e2fsprogs \
 	ethtool \
 	file \
-	fipscheck \
+	glibc-langpack-en \
 	gnupg2 \
 	hostname \
 	initscripts \
 	iproute \
 	iptables \
 	iputils \
-	less \
 	lsof \
 	nc \
 	net-tools \
@@ -39,12 +39,12 @@ RUN dnf -y install \
 	sudo \
 	systemd-sysv \
 	systemd-udev \
+	redhat-lsb-core \
 	tcpdump \
 	telnet \
 	util-linux \
 	vim-minimal \
 	wget \
-	libxcrypt-compat \
 	which && \
 	dnf upgrade -y && \
 	dnf clean all && \
