@@ -1,5 +1,5 @@
 FROM ubuntu:22.04
-LABEL maintainer="tsmith84@gmail.com"
+LABEL maintainer="tim@mondoo.com"
 ARG BUILD_DATE
 ARG VCS_REF
 

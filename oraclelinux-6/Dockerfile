@@ -1,5 +1,5 @@
 FROM oraclelinux:6
-LABEL maintainer="tsmith84@gmail.com"
+LABEL maintainer="tim@mondoo.com"
 
 # hadolint ignore=DL3033
 RUN yum -y install \
