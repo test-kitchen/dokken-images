@@ -1,4 +1,4 @@
-FROM centos:7
+FROM centos:centos8
 LABEL maintainer="sean@sean.io"
 ARG BUILD_DATE
 ARG VCS_REF
