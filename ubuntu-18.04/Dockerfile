@@ -51,7 +51,7 @@ RUN apt-get update && \
 	apt-get clean && \
 	apt-get -y autoremove && \
 	rm -rf /tmp/* /var/tmp/* && \
-	sudo ln -s /bin/mkdir /usr/bin/mkdir && \
+	ln -s /bin/mkdir /usr/bin/mkdir && \
 	find /etc/systemd/system \
 	/lib/systemd/system \
 	-path '*.wants/*' \
