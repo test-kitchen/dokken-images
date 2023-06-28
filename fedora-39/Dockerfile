@@ -1,4 +1,4 @@
-FROM fedora:38
+FROM fedora:39
 LABEL maintainer="tim@mondoo.com"
 ARG BUILD_DATE
 ARG VCS_REF
@@ -6,13 +6,14 @@ ARG VCS_REF
 LABEL org.label-schema.schema-version="1.0"
 LABEL org.label-schema.build-date=$BUILD_DATE
 LABEL org.label-schema.name="test-kitchen/dokken-images"
-LABEL org.label-schema.description="A Docker container for testing Fedora 38"
+LABEL org.label-schema.description="A Docker container for testing Fedora 39"
 LABEL org.label-schema.vcs-url="https://github.com/test-kitchen/dokken-images"
 LABEL org.label-schema.vcs-ref=$VCS_REF
 LABEL org.label-schema.vendor="test-kitchen"
 
 # hadolint ignore=DL3041
-RUN dnf -y install \
+RUN mkdir /var/cache/libdnf5 && \
+	dnf -y install \
 	binutils \
 	ca-certificates \
 	cronie \
