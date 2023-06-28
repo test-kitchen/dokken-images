@@ -49,7 +49,7 @@ RUN /usr/bin/apt-get update && \
   /usr/bin/apt-get clean && \
   /usr/bin/apt-get -y autoremove && \
   rm -rf /tmp/* /var/tmp/* && \
-  sudo ln -s /bin/mkdir /usr/bin/mkdir && \
+  ln -s /bin/mkdir /usr/bin/mkdir && \
   # Don't start any optional services.
   find /etc/systemd/system \
   /lib/systemd/system \
