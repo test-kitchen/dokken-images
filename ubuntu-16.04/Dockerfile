@@ -1,4 +1,4 @@
-FROM ubuntu:xenial-20210416
+FROM ubuntu:xenial-20210804
 LABEL maintainer="sean@sean.io"
 ARG BUILD_DATE
 ARG VCS_REF
