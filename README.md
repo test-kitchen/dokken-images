@@ -2,7 +2,7 @@
 
 Docker images for various operating systems built specifically for use with the Test Kitchen plugin [kitchen-dokken](https://kitchen.ci/docs/drivers/dokken/). Use these images as stand-ins for full OS installations in your CI pipelines or for quick local testing.
 
-All images are published to [Docker Hub](https://hub.docker.com/r/dokken/).
+All images are published to [Docker Hub](https://hub.docker.com/r/dokken/) and [GitHub Container Registry](https://github.com/orgs/test-kitchen/packages?repo_name=dokken-images).
 
 ## Why Do We Need These?
 
