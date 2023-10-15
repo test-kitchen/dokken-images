@@ -30,6 +30,7 @@ jobs:
           - "fedora-37"
           - "fedora-38"
           - "fedora-39"
+          - "fedora-40"
           - "fedora-latest"
           - "opensuse-leap-15"
           - "opensuse-leap-15.3"
