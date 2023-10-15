@@ -59,7 +59,7 @@ jobs:
 
       - name: Docker metadata
         id: meta
-        uses: docker/metadata-action@v4
+        uses: docker/metadata-action@v5
         with:
           images: |
             ghcr.io/test-kitchen/dokken/${{ matrix.os-with-arm64 }}
@@ -114,7 +114,7 @@ jobs:
 
       - name: Docker metadata
         id: meta
-        uses: docker/metadata-action@v4
+        uses: docker/metadata-action@v5
         with:
           images: |
             ghcr.io/test-kitchen/dokken/${{ matrix.os-without-arm64 }}
