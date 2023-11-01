@@ -1,4 +1,4 @@
-FROM ubuntu:23.04
+FROM ubuntu:mantic-20231011
 LABEL maintainer="tim@mondoo.com"
 ARG BUILD_DATE
 ARG VCS_REF
