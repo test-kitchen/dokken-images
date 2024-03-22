@@ -79,6 +79,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
+        if: github.event_name != 'pull_request'
 
       - name: Login to GitHub Container Registry
         uses: docker/login-action@v3
@@ -86,11 +87,12 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
+        if: github.event_name != 'pull_request'
 
       - name: Build and push (amd64, arm64)
         uses: docker/build-push-action@v5
         with:
-          push: true
+          push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           platforms: linux/amd64,linux/arm64
           file: ./${{ matrix.os-with-arm64 }}/Dockerfile
