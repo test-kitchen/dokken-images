@@ -9,6 +9,7 @@ LABEL org.opencontainers.image.description="A Docker container for testing amazo
 LABEL org.opencontainers.image.source="https://github.com/test-kitchen/dokken-images"
 LABEL org.opencontainers.image.revision=$VCS_REF
 LABEL org.opencontainers.image.vendor="test-kitchen"
+LABEL org.opencontainers.image.licenses="Apache-2.0"
 
 # hadolint ignore=DL3033
 RUN yum -y install \
