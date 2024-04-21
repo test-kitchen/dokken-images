@@ -1,67 +1,66 @@
-FROM fedora:37
-LABEL maintainer="tim@mondoo.com"
+FROM opensuse/leap:15.6
+LABEL maintainer="sean@sean.io"
 ARG BUILD_DATE
 ARG VCS_REF
 
 LABEL org.opencontainers.image.created=$BUILD_DATE
 LABEL org.opencontainers.image.title="test-kitchen/dokken-images"
-LABEL org.opencontainers.image.description="A Docker container for testing Fedora 37"
+LABEL org.opencontainers.image.description="A Docker container for testing opensuse-leap-15.6"
 LABEL org.opencontainers.image.source="https://github.com/test-kitchen/dokken-images"
 LABEL org.opencontainers.image.revision=$VCS_REF
 LABEL org.opencontainers.image.vendor="test-kitchen"
 LABEL org.opencontainers.image.licenses="Apache-2.0"
 
-# hadolint ignore=DL3041
-RUN dnf -y install \
-  binutils \
+# hadolint ignore=DL3037
+RUN zypper update -y && \
+  zypper install -y \
+  aaa_base \
+  aaa_base-extras \
   ca-certificates \
-  cronie \
+  cron \
   curl \
   dmidecode \
-  ethtool \
+  e2fsprogs \
   file \
-  fipscheck \
-  gnupg2 \
+  findutils \
+  glibc-locale \
+  grep \
+  gzip \
   hostname \
-  initscripts \
-  iproute \
-  iptables \
+  insserv-compat \
+  iproute2 \
   iputils \
   less \
-  lsof \
-  nc \
+  lsb-release \
+  ncurses-devel \
   net-tools \
-  nmap \
-  openssl \
-  passwd \
-  procps \
-  strace \
+  netcat \
+  perl-Getopt-Long-Descriptive \
   sudo \
-  systemd-sysv \
-  systemd-udev \
-  tcpdump \
-  telnet \
+  systemd \
+  systemd-sysvinit \
+  sysvinit-tools \
+  tar \
+  time \
+  timezone \
+  traceroute \
   util-linux \
-  vim-minimal \
+  vim \
   wget \
-  libxcrypt-compat \
   which && \
-  dnf upgrade -y && \
-  dnf clean all && \
+  zypper clean && \
   rm -rf /var/log/* && \
   # Don't start any optional services.
   find /etc/systemd/system \
-  /lib/systemd/system \
+  /usr/lib/systemd/system \
   -path '*.wants/*' \
   \( -name '*getty*' \
   -or -name '*systemd-logind*' \
   -or -name '*systemd-vconsole-setup*' \
   -or -name '*systemd-readahead*' \
-  -or -name '*kdump*' \
-  -or -name '*dnf-makecache*' \
   -or -name '*udev*' \) \
   -exec rm -v {} \; && \
   systemctl set-default multi-user.target && \
-  systemctl mask dev-hugepages.mount sys-fs-fuse-connections.mount network.service systemd-journal-flush.service
+  systemctl mask dev-hugepages.mount sys-fs-fuse-connections.mount network.service
 
 CMD [ "/usr/lib/systemd/systemd" ]
