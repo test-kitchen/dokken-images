@@ -3,13 +3,13 @@ LABEL maintainer="tim@mondoo.com"
 ARG BUILD_DATE
 ARG VCS_REF
 
-LABEL org.label-schema.schema-version="1.0"
-LABEL org.label-schema.build-date=$BUILD_DATE
-LABEL org.label-schema.name="test-kitchen/dokken-images"
-LABEL org.label-schema.description="A Docker container for testing almalinux-9"
-LABEL org.label-schema.vcs-url="https://github.com/test-kitchen/dokken-images"
-LABEL org.label-schema.vcs-ref=$VCS_REF
-LABEL org.label-schema.vendor="test-kitchen"
+LABEL org.opencontainers.image.created=$BUILD_DATE
+LABEL org.opencontainers.image.title="test-kitchen/dokken-images"
+LABEL org.opencontainers.image.description="A Docker container for testing almalinux-9"
+LABEL org.opencontainers.image.source="https://github.com/test-kitchen/dokken-images"
+LABEL org.opencontainers.image.revision=$VCS_REF
+LABEL org.opencontainers.image.vendor="test-kitchen"
+LABEL org.opencontainers.image.licenses="Apache-2.0"
 
 RUN dnf -y install \
     at \

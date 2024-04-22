@@ -1,11 +1,11 @@
-FROM opensuse/leap:15.3
+FROM opensuse/leap:15.6
 LABEL maintainer="sean@sean.io"
 ARG BUILD_DATE
 ARG VCS_REF
 
 LABEL org.opencontainers.image.created=$BUILD_DATE
 LABEL org.opencontainers.image.title="test-kitchen/dokken-images"
-LABEL org.opencontainers.image.description="A Docker container for testing openSUSE Leap 15.3"
+LABEL org.opencontainers.image.description="A Docker container for testing opensuse-leap-15.6"
 LABEL org.opencontainers.image.source="https://github.com/test-kitchen/dokken-images"
 LABEL org.opencontainers.image.revision=$VCS_REF
 LABEL org.opencontainers.image.vendor="test-kitchen"
