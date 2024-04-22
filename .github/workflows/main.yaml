@@ -92,6 +92,8 @@ jobs:
       - name: Build and push (amd64, arm64)
         uses: docker/build-push-action@v5
         with:
+          sbom: true
+          provenance: true
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           platforms: linux/amd64,linux/arm64
