@@ -1,4 +1,4 @@
-FROM fedora:39
+FROM fedora:40
 LABEL maintainer="tim@mondoo.com"
 ARG BUILD_DATE
 ARG VCS_REF
