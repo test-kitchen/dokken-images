@@ -5,7 +5,7 @@ ARG VCS_REF
 
 LABEL org.opencontainers.image.created=$BUILD_DATE
 LABEL org.opencontainers.image.title="test-kitchen/dokken-images"
-LABEL org.opencontainers.image.description="A Docker container for testing Fedora 39"
+LABEL org.opencontainers.image.description="A Docker container for testing Fedora 40"
 LABEL org.opencontainers.image.source="https://github.com/test-kitchen/dokken-images"
 LABEL org.opencontainers.image.revision=$VCS_REF
 LABEL org.opencontainers.image.vendor="test-kitchen"
