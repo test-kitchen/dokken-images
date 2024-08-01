@@ -17,8 +17,6 @@ jobs:
           - "almalinux-9"
           - "amazonlinux-2"
           - "amazonlinux-2023"
-          - "centos-7"
-          - "centos-8"
           - "centos-stream-9"
           - "debian-11"
           - "debian-12"
