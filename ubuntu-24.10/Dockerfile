@@ -1,11 +1,11 @@
-FROM ubuntu:22.04
+FROM ubuntu:24.10
 LABEL maintainer="tim@mondoo.com"
 ARG BUILD_DATE
 ARG VCS_REF
 
 LABEL org.opencontainers.image.created=$BUILD_DATE
 LABEL org.opencontainers.image.title="test-kitchen/dokken-images"
-LABEL org.opencontainers.image.description="A Docker container for testing Ubuntu 22.04"
+LABEL org.opencontainers.image.description="A Docker container for testing Ubuntu 24.10"
 LABEL org.opencontainers.image.source="https://github.com/test-kitchen/dokken-images"
 LABEL org.opencontainers.image.revision=$VCS_REF
 LABEL org.opencontainers.image.vendor="test-kitchen"
@@ -34,7 +34,6 @@ RUN apt-get update && \
 	lsb-release \
 	lsof \
 	net-tools \
-	netcat \
 	nmap \
 	perl \
 	procps \
