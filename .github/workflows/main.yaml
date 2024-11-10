@@ -15,6 +15,7 @@ jobs:
         os-with-arm64:
           - "almalinux-8"
           - "almalinux-9"
+          - "almalinux-10"
           - "amazonlinux-2"
           - "amazonlinux-2023"
           - "centos-stream-9"
