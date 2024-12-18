@@ -55,6 +55,7 @@ RUN dnf -y install \
     vim-minimal \
     time \
     wget \
+    libxcrypt \
     libxcrypt-compat \
     which && \
     dnf upgrade -y && \
