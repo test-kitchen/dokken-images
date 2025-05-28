@@ -1,4 +1,4 @@
-FROM almalinux:10-kitten
+FROM almalinux:10
 LABEL maintainer="lance@osuosl.org"
 ARG BUILD_DATE
 ARG VCS_REF
