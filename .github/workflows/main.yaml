@@ -34,6 +34,7 @@ jobs:
           - "opensuse-leap-15.6"
           - "rockylinux-8"
           - "rockylinux-9"
+          - "rockylinux-10"
           - "oraclelinux-7"
           - "oraclelinux-8"
           - "oraclelinux-9"
