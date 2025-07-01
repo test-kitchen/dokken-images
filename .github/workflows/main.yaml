@@ -26,7 +26,6 @@ jobs:
           - "eurolinux-7"
           - "eurolinux-8"
           - "eurolinux-9"
-          - "fedora-40"
           - "fedora-41"
           - "fedora-42"
           - "fedora-latest"
