@@ -54,6 +54,7 @@ RUN apt-get update && \
 	-path '*.wants/*' \
 	\( -name '*getty*' \
 	-or -name '*apt-daily*' \
+	-or -name '*dpkg-db-backup*' \
 	-or -name '*systemd-timesyncd*' \
 	-or -name '*systemd-logind*' \
 	-or -name '*systemd-vconsole-setup*' \
@@ -61,6 +62,6 @@ RUN apt-get update && \
 	-or -name '*udev*' \) \
 	-exec rm -v {} \; && \
 	systemctl set-default multi-user.target && \
-	systemctl mask dev-hugepages.mount sys-fs-fuse-connections.mount network.service
+	systemctl mask dev-hugepages.mount sys-fs-fuse-connections.mount network.service systemd-journal-flush.service
 
-CMD [ "/bin/systemd" ]
+CMD [ "/usr/lib/systemd/systemd" ]
