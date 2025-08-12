@@ -35,6 +35,7 @@ RUN dnf -y install \
   openssl \
   passwd \
   procps \
+  python3-dnf \
   strace \
   sudo \
   systemd-sysv \
