@@ -23,6 +23,7 @@ jobs:
           - "debian-11"
           - "debian-12"
           - "debian-13"
+          - "debian-14"
           - "eurolinux-7"
           - "eurolinux-8"
           - "eurolinux-9"
