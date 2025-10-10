@@ -29,6 +29,7 @@ jobs:
           - "fedora-latest"
           - "opensuse-leap-15"
           - "opensuse-leap-15.6"
+          - "opensuse-leap-16.0"
           - "rockylinux-8"
           - "rockylinux-9"
           - "rockylinux-10"
