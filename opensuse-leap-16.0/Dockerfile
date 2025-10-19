@@ -36,7 +36,6 @@ RUN zypper update -y && \
   perl-Getopt-Long-Descriptive \
   sudo \
   systemd \
-  systemd-sysvinit \
   sysvinit-tools \
   tar \
   time \
