@@ -27,7 +27,6 @@ RUN zypper update -y && \
   grep \
   gzip \
   hostname \
-  insserv-compat \
   iproute2 \
   iputils \
   less \
