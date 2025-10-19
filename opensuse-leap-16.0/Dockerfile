@@ -33,7 +33,6 @@ RUN zypper update -y && \
   lsb-release \
   ncurses-devel \
   net-tools \
-  netcat \
   perl-Getopt-Long-Descriptive \
   sudo \
   systemd \
