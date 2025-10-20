@@ -26,6 +26,7 @@ jobs:
           - "debian-14"
           - "fedora-41"
           - "fedora-42"
+          - "fedora-43"
           - "fedora-latest"
           - "opensuse-leap-15"
           - "opensuse-leap-15.6"
