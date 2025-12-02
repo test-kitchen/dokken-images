@@ -16,7 +16,6 @@ ENV DEBIAN_FRONTEND=noninteractive
 # hadolint ignore=DL3008,DL3015,DL3004
 RUN apt-get update && \
 	apt-get -y install \
-	apt-transport-https \
 	apt-utils \
 	curl \
 	dbus \
