@@ -16,7 +16,6 @@ ENV DEBIAN_FRONTEND noninteractive
 # hadolint ignore=DL3041
 RUN /usr/bin/apt-get update && \
   /usr/bin/apt-get -y install \
-  apt-transport-https \
   apt-utils \
   cron \
   curl \
