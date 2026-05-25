@@ -35,6 +35,8 @@ RUN apt-get update && \
 	net-tools \
 	nmap \
 	perl \
+	python3 \
+	python-is-python3 \
 	procps \
 	strace \
 	sudo \
