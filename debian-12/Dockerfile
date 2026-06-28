@@ -16,7 +16,6 @@ ENV DEBIAN_FRONTEND=noninteractive
 # hadolint ignore=DL3041
 RUN apt-get update && \
 	apt-get -y install \
-	apt-transport-https \
 	apt-utils \
 	cron \
 	curl \
@@ -49,7 +48,6 @@ RUN apt-get update && \
 	apt-get clean && \
 	apt-get -y autoremove && \
 	rm -rf /tmp/* /var/tmp/* && \
-	ln -s /bin/mkdir mkdir && \
 	find /etc/systemd/system \
 	/lib/systemd/system \
 	-path '*.wants/*' \
