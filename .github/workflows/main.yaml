@@ -24,6 +24,8 @@ jobs:
           - "debian-13"
           - "debian-14"
           - "fedora-43"
+          - "fedora-44"
+          - "fedora-45"
           - "fedora-latest"
           - "opensuse-leap-16.0"
           - "rockylinux-8"
@@ -38,6 +40,7 @@ jobs:
           - "ubuntu-22.04"
           - "ubuntu-24.04"
           - "ubuntu-26.04"
+          - "ubuntu-26.10"
     steps:
       - name: Checkout
         uses: actions/checkout@v4
