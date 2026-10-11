@@ -28,6 +28,8 @@ jobs:
           - "fedora-45"
           - "fedora-latest"
           - "opensuse-leap-16.0"
+          - "sles-15"
+          - "sles-16"
           - "rockylinux-8"
           - "rockylinux-9"
           - "rockylinux-10"

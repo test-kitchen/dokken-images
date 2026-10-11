@@ -72,6 +72,8 @@ The images are rebuilt every night so their packages stay current. Pull requests
 | `fedora-45` | `fedora:45` | `/usr/lib/systemd/systemd` | Pre-release |
 | `fedora-latest` | `fedora:latest` | `/usr/lib/systemd/systemd` | Tracks `fedora:latest` |
 | `opensuse-leap-16.0` | `opensuse/leap:16.0` | `/usr/lib/systemd/systemd` | |
+| `sles-15` | `registry.suse.com/bci/bci-init:15.7` | `/usr/lib/systemd/systemd` | SUSE BCI, see [SLES Images](#sles-images) |
+| `sles-16` | `registry.suse.com/bci/bci-init:16.0` | `/usr/lib/systemd/systemd` | SUSE BCI, see [SLES Images](#sles-images) |
 | `rockylinux-8` | `rockylinux:8` | `/usr/lib/systemd/systemd` | |
 | `rockylinux-9` | `rockylinux:9` | `/usr/lib/systemd/systemd` | |
 | `rockylinux-10` | `rockylinux/rockylinux:10` | `/usr/lib/systemd/systemd` | |
@@ -85,6 +87,14 @@ The images are rebuilt every night so their packages stay current. Pull requests
 | `ubuntu-24.04` | `ubuntu:24.04` | `/usr/lib/systemd/systemd` | |
 | `ubuntu-26.04` | `ubuntu:26.04` | `/usr/lib/systemd/systemd` | |
 | `ubuntu-26.10` | `ubuntu:26.10` | `/usr/lib/systemd/systemd` | Pre-release |
+
+## SLES Images
+
+The `sles-15` and `sles-16` images are built on the [SUSE Linux Enterprise Base Container Images](https://www.suse.com/products/base-container-images/) (BCI), which are freely redistributable under the [SLE BCI EULA](https://www.suse.com/licensing/eula/#bci). They are not a SUSE product and are not supported by SUSE.
+
+Without a SUSE registration only the `SLE_BCI` repository is available. It carries a large subset of SLES, but some packages (such as `haproxy`) can't be installed from it.
+
+Ohai reports these images as platform `suse` with a `platform_version` of `15.7` or `16.0`.
 
 ## Support Policy
 
