@@ -48,7 +48,8 @@ RUN apt-get update && \
 	wget && \
 	apt-get clean && \
 	apt-get -y autoremove && \
-	rm -rf /tmp/* /var/tmp/* && \
+	rm -rf /tmp/* /var/tmp/* /var/lib/dpkg/*-old /var/cache/debconf/*-old && \
+	find /var/log -type f -delete && \
 	find /etc/systemd/system \
 	/lib/systemd/system \
 	-path '*.wants/*' \
@@ -61,6 +62,8 @@ RUN apt-get update && \
 	-or -name '*udev*' \) \
 	-exec rm -v {} \; && \
 	systemctl set-default multi-user.target && \
-	systemctl mask dev-hugepages.mount sys-fs-fuse-connections.mount network.service
+	systemctl mask dev-hugepages.mount sys-fs-fuse-connections.mount network.service && \
+	# Let systemd generate a unique machine-id in each container
+	truncate -s 0 /etc/machine-id
 
 CMD [ "/bin/systemd" ]

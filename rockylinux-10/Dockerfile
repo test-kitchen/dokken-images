@@ -59,7 +59,7 @@ RUN dnf --allowerasing -y install \
     which && \
     dnf upgrade -y && \
     dnf clean all && \
-    rm -rf /var/log/* && \
+    rm -rf /var/cache/dnf/* /var/lib/dnf/history* /var/lib/rpm/__db.* /var/log/* /tmp/* /var/tmp/* && \
     # Don't start any optional services.
     find /etc/systemd/system \
     /lib/systemd/system \
@@ -73,6 +73,8 @@ RUN dnf --allowerasing -y install \
     -or -name '*udev*' \) \
     -exec rm -v {} \; && \
     systemctl set-default multi-user.target && \
-    systemctl mask dev-hugepages.mount sys-fs-fuse-connections.mount network.service systemd-journal-flush.service
+    systemctl mask dev-hugepages.mount sys-fs-fuse-connections.mount network.service systemd-journal-flush.service && \
+    # Let systemd generate a unique machine-id in each container
+    truncate -s 0 /etc/machine-id
 
 CMD [ "/usr/lib/systemd/systemd" ]

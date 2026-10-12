@@ -45,8 +45,8 @@ RUN zypper update -y && \
   vim \
   wget \
   which && \
-  zypper clean && \
-  rm -rf /var/log/* && \
+  zypper clean -a && \
+  rm -rf /var/log/* /tmp/* /var/tmp/* && \
   # Don't start any optional services.
   find /etc/systemd/system \
   /usr/lib/systemd/system \
@@ -58,6 +58,8 @@ RUN zypper update -y && \
   -or -name '*udev*' \) \
   -exec rm -v {} \; && \
   systemctl set-default multi-user.target && \
-  systemctl mask dev-hugepages.mount sys-fs-fuse-connections.mount network.service
+  systemctl mask dev-hugepages.mount sys-fs-fuse-connections.mount network.service && \
+  # Let systemd generate a unique machine-id in each container
+  truncate -s 0 /etc/machine-id
 
 CMD [ "/usr/lib/systemd/systemd" ]
