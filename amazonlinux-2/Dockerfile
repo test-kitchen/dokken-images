@@ -48,7 +48,7 @@ RUN yum -y install \
 	yum upgrade -y && \
 	yum clean all && \
 	rm -rf /var/cache/yum && \
-	rm -rf /var/log/* && \
+	rm -rf /var/lib/rpm/__db.* /var/log/* /tmp/* /var/tmp/* && \
 	# Don't start any optional services.
 	find /etc/systemd/system \
 	/lib/systemd/system \
@@ -62,6 +62,8 @@ RUN yum -y install \
 	-or -name '*udev*' \) \
 	-exec rm -v {} \; && \
 	systemctl set-default multi-user.target && \
-	systemctl mask dev-hugepages.mount sys-fs-fuse-connections.mount network.service
+	systemctl mask dev-hugepages.mount sys-fs-fuse-connections.mount network.service && \
+	# Let systemd generate a unique machine-id in each container
+	truncate -s 0 /etc/machine-id
 
 CMD [ "/usr/lib/systemd/systemd" ]
