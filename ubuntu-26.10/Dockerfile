@@ -34,6 +34,8 @@ RUN apt-get -y --update install \
 	net-tools \
 	nmap \
 	perl \
+	python3 \
+	python-is-python3 \
 	procps \
 	snapd \
 	strace \
