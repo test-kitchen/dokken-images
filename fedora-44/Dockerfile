@@ -1,11 +1,11 @@
-FROM fedora:42
+FROM fedora:44
 LABEL maintainer="tim@mondoo.com"
 ARG BUILD_DATE
 ARG VCS_REF
 
 LABEL org.opencontainers.image.created=$BUILD_DATE
 LABEL org.opencontainers.image.title="test-kitchen/dokken-images"
-LABEL org.opencontainers.image.description="A Docker container for testing Fedora 42"
+LABEL org.opencontainers.image.description="A Docker container for testing Fedora 44"
 LABEL org.opencontainers.image.source="https://github.com/test-kitchen/dokken-images"
 LABEL org.opencontainers.image.revision=$VCS_REF
 LABEL org.opencontainers.image.vendor="test-kitchen"

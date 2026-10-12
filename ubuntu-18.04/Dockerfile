@@ -36,6 +36,7 @@ RUN apt-get update && \
 	netcat \
 	nmap \
 	perl \
+	python3 \
 	procps \
 	snapd \
 	strace \

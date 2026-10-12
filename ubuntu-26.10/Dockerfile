@@ -1,11 +1,11 @@
-FROM ubuntu:25.10
+FROM ubuntu:26.10
 LABEL maintainer="tim@mondoo.com"
 ARG BUILD_DATE
 ARG VCS_REF
 
 LABEL org.opencontainers.image.created=$BUILD_DATE
 LABEL org.opencontainers.image.title="test-kitchen/dokken-images"
-LABEL org.opencontainers.image.description="A Docker container for testing Ubuntu 25.10"
+LABEL org.opencontainers.image.description="A Docker container for testing Ubuntu 26.10"
 LABEL org.opencontainers.image.source="https://github.com/test-kitchen/dokken-images"
 LABEL org.opencontainers.image.revision=$VCS_REF
 LABEL org.opencontainers.image.vendor="test-kitchen"
@@ -34,6 +34,8 @@ RUN apt-get -y --update install \
 	net-tools \
 	nmap \
 	perl \
+	python3 \
+	python-is-python3 \
 	procps \
 	snapd \
 	strace \

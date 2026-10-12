@@ -36,6 +36,8 @@ RUN apt-get update && \
 	net-tools \
 	nmap \
 	perl \
+	python3 \
+	python-is-python3 \
 	procps \
 	snapd \
 	strace \
@@ -64,4 +66,4 @@ RUN apt-get update && \
 	systemctl set-default multi-user.target && \
 	systemctl mask dev-hugepages.mount sys-fs-fuse-connections.mount network.service
 
-CMD [ "/bin/systemd" ]
+CMD [ "/usr/lib/systemd/systemd" ]

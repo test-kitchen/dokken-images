@@ -20,16 +20,13 @@ jobs:
           - "amazonlinux-2023"
           - "centos-stream-9"
           - "centos-stream-10"
-          - "debian-11"
           - "debian-12"
           - "debian-13"
           - "debian-14"
-          - "fedora-41"
-          - "fedora-42"
           - "fedora-43"
+          - "fedora-44"
+          - "fedora-45"
           - "fedora-latest"
-          - "opensuse-leap-15"
-          - "opensuse-leap-15.6"
           - "opensuse-leap-16.0"
           - "rockylinux-8"
           - "rockylinux-9"
@@ -38,27 +35,45 @@ jobs:
           - "oraclelinux-8"
           - "oraclelinux-9"
           - "oraclelinux-10"
-          - "ubuntu-16.04"
           - "ubuntu-18.04"
           - "ubuntu-20.04"
           - "ubuntu-22.04"
           - "ubuntu-24.04"
-          - "ubuntu-25.04"
-          - "ubuntu-25.10"
           - "ubuntu-26.04"
+          - "ubuntu-26.10"
+    env:
+      # Empty on fork and Dependabot PRs, which can't read Actions secrets
+      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
+
+      # Log in before setting up Buildx so the buildkit and base image pulls
+      # use our Docker Hub account rather than the runner's built-in one
+      - name: Login to Docker Hub
+        uses: docker/login-action@v4
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+        if: env.DOCKER_USERNAME != ''
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v4
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+        if: github.event_name != 'pull_request'
 
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+        uses: docker/setup-qemu-action@v4
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+        uses: docker/setup-buildx-action@v4
 
       - name: Docker metadata
         id: meta
-        uses: docker/metadata-action@v5
+        uses: docker/metadata-action@v6
         with:
           images: |
             ghcr.io/test-kitchen/dokken/${{ matrix.os-with-arm64 }}
@@ -73,23 +88,12 @@ jobs:
             type=sha
             type=raw,value=latest,enable={{is_default_branch}}
 
-      - name: Login to Docker Hub
-        uses: docker/login-action@v3
-        with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-        if: github.event_name != 'pull_request'
-
-      - name: Login to GitHub Container Registry
-        uses: docker/login-action@v3
-        with:
-          registry: ghcr.io
-          username: ${{ github.repository_owner }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-        if: github.event_name != 'pull_request'
-
       - name: Build and push (amd64, arm64)
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v7
+        env:
+          # Every job uploads a build record artifact; keep them only long
+          # enough to debug a recent failure
+          DOCKER_BUILD_RECORD_RETENTION_DAYS: 7
         with:
           sbom: true
           provenance: true
@@ -101,3 +105,18 @@ jobs:
             BUILD_DATE=${{ fromJSON(steps.meta.outputs.json).labels['org.opencontainers.image.created'] }}
             VCS_REF=${{ fromJSON(steps.meta.outputs.json).labels['org.opencontainers.image.revision'] }}
 
+  # GitHub disables scheduled workflows after 60 days without repository
+  # activity, which stopped the nightly rebuilds in August 2026. Re-enabling
+  # the workflow from the nightly run is expected to reset that timer, but
+  # that is unconfirmed: if the schedule is still disabled after 60 days
+  # without commits, this job does not help and can be removed.
+  keepalive:
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+    steps:
+      - name: Keep the nightly schedule enabled
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X PUT "repos/${{ github.repository }}/actions/workflows/main.yaml/enable"
