@@ -34,6 +34,7 @@ RUN zypper update -y && \
   ncurses-devel \
   net-tools \
   perl-Getopt-Long-Descriptive \
+  python3 \
   sudo \
   systemd \
   sysvinit-tools \

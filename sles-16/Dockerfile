@@ -36,6 +36,7 @@ RUN zypper update -y && \
   net-tools \
   netcat-openbsd \
   procps \
+  python3 \
   sudo \
   systemd \
   tar \
